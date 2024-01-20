@@ -1,6 +1,11 @@
 /* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+
 import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -56,7 +61,7 @@ const TopBanner = () => {
                       </span>
                     </button>
                   </div>
-                  <div className="flex justify-center items-end">
+                  <div className="flex justify-center items-end" data-aos="fade-right">
                     <img src={image1} className="w-[450px] h-[550px]" alt="" />
                   </div>
                 </div>
@@ -67,7 +72,7 @@ const TopBanner = () => {
             <div className="relative overflow-hidden bg-[#E3FFE6]">
               <div className=" px-[70px]">
                 <div className="grid grid-cols-2">
-                  <div className="py-[150px]" data-aos="fade-right">
+                  <div className="py-[150px]">
                     <h4 className="text-2xl font-medium font-primary text-[#334144] mb-10">
                       In this season, find the best 🔥
                     </h4>
