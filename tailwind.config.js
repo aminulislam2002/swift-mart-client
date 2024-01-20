@@ -15,7 +15,7 @@ export default {
         secondary: "#F6F7F8",
       },
       fontFamily: {
-        Primary: "Poppins",
+        primary: "Poppins",
       },
     },
   },
