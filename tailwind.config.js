@@ -14,6 +14,9 @@ export default {
         primary: "#FFFFFF",
         secondary: "#F6F7F8",
       },
+      fontFamily: {
+        Primary: "Poppins",
+      },
     },
   },
   plugins: [require("daisyui")],
