@@ -58,7 +58,7 @@ const NavBar = () => {
               </div>
             </div>
             <div className="lg:col-span-3 col-span-8 order-1 lg:order-1 flex justify-center lg:justify-start items-center">
-              <Link to="/" className="flex justify-start items-center gap-2 text-xl lf:text-3xl font-bold text-primary">
+              <Link to="/" className="flex justify-start items-center gap-2 text-xl lg:text-3xl font-bold text-primary">
                 <img src={swift_mart_logo} className="h-8 lg:h-12 w-8 lg:w-12 rounded-full" alt="" /> <span>SwiftMart</span>
               </Link>
             </div>
