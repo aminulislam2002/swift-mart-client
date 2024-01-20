@@ -4,7 +4,17 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#111827",
+        secondary: "#6B7280",
+        price: "#22C55E",
+      },
+      backgroundColor: {
+        primary: "#FFFFFF",
+        secondary: "#F6F7F8",
+      },
+    },
   },
   plugins: [require("daisyui")],
 };
