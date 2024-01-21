@@ -1,11 +1,6 @@
 /* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
 
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init();
-
 import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -61,8 +56,8 @@ const TopBanner = () => {
                       </span>
                     </button>
                   </div>
-                  <div className="flex justify-center items-end" data-aos="fade-right">
-                    <img src={image1} className="w-[450px] h-[550px]" alt="" />
+                  <div className="flex justify-center items-end">
+                    <img src={image1} className="w-[450px] h-[550px]" alt="Banner Image 1" />
                   </div>
                 </div>
               </div>
@@ -85,7 +80,7 @@ const TopBanner = () => {
                     </button>
                   </div>
                   <div className="flex justify-center items-end">
-                    <img src={image1} className="w-[450px] h-[550px]" alt="" />
+                    <img src={image1} className="w-[450px] h-[550px]" alt="Banner Image 2" />
                   </div>
                 </div>
               </div>
@@ -108,7 +103,7 @@ const TopBanner = () => {
                     </button>
                   </div>
                   <div className="flex justify-center items-end">
-                    <img src={image1} className="w-[450px] h-[550px]" alt="" />
+                    <img src={image1} className="w-[450px] h-[550px]" alt="Banner Image 3" />
                   </div>
                 </div>
               </div>
