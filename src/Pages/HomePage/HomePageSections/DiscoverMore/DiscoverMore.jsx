@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./Sweper.css";
+import "./Swiper.css";
 
 import image1 from "../../../../assets/DiscoverMore/HUDY.png";
 import image2 from "../../../../assets/DiscoverMore/GIFT-BOX.png";
@@ -80,13 +80,13 @@ const DiscoverMore = () => {
   };
 
   return (
-    <div className="my-24 lg:my-32 mx-10">
+    <div className="my-24 lg:my-32 mx-5 lg:mx-10">
       {/* Title of this section */}
 
       <div className="relative flex flex-col sm:flex-row sm:items-end justify-between mb-12 lg:mb-14 text-neutral-900 dark:text-neutral-50">
-        <div className="">
+        <div>
           <h2 className="font-primary text-3xl md:text-4xl font-semibold">
-            Discover more<span className="">! </span>
+            Discover more<span>! </span>
             <span className="text-neutral-500 dark:text-neutral-400">Good things are waiting for you</span>
           </h2>
         </div>
