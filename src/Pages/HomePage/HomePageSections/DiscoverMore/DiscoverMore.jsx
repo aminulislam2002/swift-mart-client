@@ -57,7 +57,7 @@ const data = [
 
 const DiscoverMore = () => {
   const [swiper, setSwiper] = useState(null);
-  const [isBackButtonActive, setIsBackButtonActive] = useState(true);
+  const [isBackButtonActive, setIsBackButtonActive] = useState(false);
 
   const handleBack = () => {
     if (swiper) {
