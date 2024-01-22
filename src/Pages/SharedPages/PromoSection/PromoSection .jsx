@@ -10,14 +10,14 @@ const PromoSection = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="w-28 flex justify-start items-center gap-2 text-xl lg:text-2xl font-bold text-primary"
+          className="w-28 flex justify-start items-center gap-2 text-xl lg:text-2xl font-bold text-primary font-primary"
           href="/"
         >
           <img src={logo} className="rounded-full w-10 h-10" alt="SwiftMart Logo" />
           <span>SwiftMart</span>
         </Link>
         {/* Heading and Description */}
-        <h2 className="font-semibold text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl mt-6 sm:mt-10 !leading-[1.2] tracking-tight">
+        <h2 className="font-semibold font-primary text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl mt-6 sm:mt-10 !leading-[1.2] tracking-tight">
           Earn free money <br /> with SwiftMart
         </h2>
         <span className="block mt-6 text-slate-500 dark:text-slate-400">
