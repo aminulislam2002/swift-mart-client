@@ -23,61 +23,67 @@ const data = [
     id: 1,
     image: LeatherGloves,
     size: ["XS", "S", "M", "L", "XL"],
-    colors: ["amber", "sky", "green", "yellow", "red"],
+    colors: ["green", "yellow", "red"],
     name: "Leather Gloves",
     title: "Perfect mint green",
     price: "$42",
-    rating: "4.9 (98 reviews)",
+    rating: "4.9",
+    reviews: "250",
   },
   {
     id: 2,
     image: WinterJacket,
     size: ["XS", "S", "M", "L", "XL"],
-    colors: ["blue", "green", "gray", "red", "white"],
+    colors: ["blue", "green", "gray"],
     name: "Winter Jacket",
     title: "Cozy blue",
     price: "$120",
-    rating: "4.7 (112 reviews)",
+    rating: "4.7",
+    reviews: "112",
   },
   {
     id: 3,
     image: KnitSweater,
     size: ["XS", "S", "M", "L", "XL"],
-    colors: ["teal", "blue", "lime", "gold", "cranberry red"],
+    colors: ["teal", "blue", "lime"],
     name: "Knit Sweater",
     title: "Warm green",
     price: "$80",
-    rating: "4.5 (85 reviews)",
+    rating: "4.5",
+    reviews: "85",
   },
   {
     id: 4,
     image: DenimJeans,
     size: ["XS", "S", "M", "L", "XL"],
-    colors: ["indigo", "emerald", "khaki", "yellow", "maroon"],
+    colors: ["indigo", "emerald", "khaki"],
     name: "Denim Jeans",
     title: "Classic blue",
     price: "$65",
-    rating: "4.8 (94 reviews)",
+    rating: "4.8",
+    reviews: "94",
   },
   {
     id: 5,
     image: Sneakers,
     size: ["XS", "S", "M", "L", "XL"],
-    colors: ["violet", "blue", "green", "yellow", "red"],
+    colors: ["violet", "blue", "green"],
     name: "Sneakers",
     title: "Sporty red",
     price: "$55",
-    rating: "4.6 (102 reviews)",
+    rating: "4.6",
+    reviews: "102",
   },
   {
     id: 6,
     image: Backpack,
     size: ["XS", "S", "M", "L", "XL"],
-    colors: ["black", "gray", "green", "camel", "red"],
+    colors: ["black", "gray", "green"],
     name: "Backpack",
     title: "Stylish black",
     price: "$90",
-    rating: "4.9 (120 reviews)",
+    rating: "4.9",
+    reviews: "120",
   },
 ];
 
@@ -154,7 +160,18 @@ const NewArrivals = () => {
 
       <div>
         <Swiper
-          slidesPerView={4}
+          // slidesPerView={4}
+          breakpoints={{
+            640: {
+              slidesPerView: 1, // 1 slide per view for small devices
+            },
+            768: {
+              slidesPerView: 2, // 2 slides per view for medium devices
+            },
+            1024: {
+              slidesPerView: 4, // 4 slides per view for large devices
+            },
+          }}
           spaceBetween={30}
           pagination={
             {
@@ -200,16 +217,6 @@ const NewArrivals = () => {
                     </div>
                   </div>
                   <div className="space-y-4 px-2.5 pt-5 pb-2.5">
-                    <div className="flex space-x-2">
-                      {/* Add your color options here */}
-                      {product?.colors?.map((color) => (
-                        <div
-                          key={color}
-                          className={`relative w-6 h-6 rounded-full overflow-hidden z-10 border cursor-pointer bg-${color}-500`}
-                          title={color}
-                        ></div>
-                      ))}
-                    </div>
                     <div className="text-start">
                       <h2 className="text-base font-semibold transition-colors">{product?.name}</h2>
                       <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 ">{product?.title}</p>
@@ -221,8 +228,10 @@ const NewArrivals = () => {
                         </div>
                       </div>
                       <div className="flex items-center mb-0.5">
-                        <FaStar className="w-5 h-5 pb-[1px] text-amber-400"></FaStar>
-                        <span className="text-sm ml-1 text-slate-500 dark:text-slate-400">{product?.rating}</span>
+                        <FaStar className="w-4 h-4 pb-[1px] text-amber-400"></FaStar>
+                        <span className="text-sm ml-1 text-slate-500 dark:text-slate-400">
+                          {product?.rating} ({product.reviews} reviews)
+                        </span>
                       </div>
                     </div>
                   </div>
