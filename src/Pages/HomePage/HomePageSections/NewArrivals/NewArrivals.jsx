@@ -163,13 +163,13 @@ const NewArrivals = () => {
           // slidesPerView={4}
           breakpoints={{
             640: {
-              slidesPerView: 1, // 1 slide per view for small devices
+              slidesPerView: 1,
             },
             768: {
-              slidesPerView: 2, // 2 slides per view for medium devices
+              slidesPerView: 2,
             },
             1024: {
-              slidesPerView: 4, // 4 slides per view for large devices
+              slidesPerView: 4,
             },
           }}
           spaceBetween={30}

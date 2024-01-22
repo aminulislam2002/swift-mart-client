@@ -22,7 +22,7 @@ const data = [
     linkTo: "/link1",
     image: image1,
     category: "Explore new arrivals",
-    title: "Shop the latest from top brands",
+    title: "Shop top brands now!",
     buttonText: "Show me all",
     bgColor: "bg-green-50",
   },
@@ -120,7 +120,15 @@ const DiscoverMore = () => {
 
       <div>
         <Swiper
-          slidesPerView={3}
+          // slidesPerView={3}
+          breakpoints={{
+            768: {
+              slidesPerView: 1,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
           spaceBetween={30}
           pagination={
             {
@@ -133,7 +141,7 @@ const DiscoverMore = () => {
           {data.map((item) => (
             <SwiperSlide key={item.id}>
               <Link to={item.linkTo}>
-                <div className={`w-[420px] p-6 rounded-2xl group ${item.bgColor}`}>
+                <div className={`w-[420px] max-w-sm p-6 rounded-2xl group ${item.bgColor}`}>
                   <div className="relative overflow-hidden">
                     <div className="flex justify-center items-center">
                       <div className="w-1/2">
