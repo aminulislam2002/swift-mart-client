@@ -1,118 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import ProductCard from "./ProductCard";
-
-// Import images
-import DenimJeans from "../../../../assets/NewArrivals/Denim-Jeans.png";
-
-import shoes from "../../../../assets/TrendingNow/shoes.jpeg";
-import sunglass from "../../../../assets/TrendingNow/sunglass.jpg";
-import BabyCarrierBag from "../../../../assets/TrendingNow/Baby Carrier Bag.jpg";
-import WoodenTaptenniscricketbat from "../../../../assets/TrendingNow/Wooden Tap tennis cricket bat.jpeg";
-import iphone15 from "../../../../assets/TrendingNow/iphone15.webp";
-import MatteMadeInHeaven from "../../../../assets/TrendingNow/MatteMadeInHeaven.webp";
-
-const products = [
-  {
-    id: 1,
-    image: shoes,
-    name: "New Trendy Black Color Korean Canvas Sneakers Shoes for Men Slip On Casual Shoes",
-    category: "Mans",
-    size: ["40", "41", "42", "43"],
-    colors: ["green", "yellow", "red"],
-    price: "1199",
-    offer: "499",
-    rating: "4.9",
-    reviews: "250",
-  },
-  {
-    id: 2,
-    image: sunglass,
-    name: "Luxury Brand Design Vintage Rimless Rhinestone Sunglasses Women Men Fashion Gradient Lens Sun Glasses Shades for Female",
-    category: "Women",
-    size: [],
-    colors: ["blue", "green", "gray"],
-    price: "752",
-    offer: "411",
-    rating: "4.7",
-    reviews: "112",
-  },
-  {
-    id: 3,
-    image: BabyCarrierBag,
-    name: "High Quality Baby Carrier Bag (Lying, Facing Mummy, Facing Forward) for 6 Months to 2 Years Baby",
-    category: "Kids",
-    size: ["M", "L", "XL"],
-    colors: ["teal", "blue", "lime"],
-    price: "485",
-    offer: "249",
-    rating: "4.5",
-    reviews: "85",
-  },
-  {
-    id: 4,
-    image: DenimJeans,
-    name: "Denim Jeans",
-    category: "Jewelry",
-    size: ["XS", "S", "M", "L", "XL"],
-    colors: ["indigo", "emerald", "khaki"],
-    price: "65",
-    offer: "30",
-    rating: "4.8",
-    reviews: "94",
-  },
-  {
-    id: 5,
-    image: WoodenTaptenniscricketbat,
-    name: "Wooden Tap tennis cricket bat - Cricket bat - Tennis ball cricket bat",
-    category: "Sports",
-    size: [],
-    colors: ["violet", "blue", "green"],
-    price: "650",
-    offer: "150",
-    rating: "4.6",
-    reviews: "102",
-  },
-  {
-    id: 6,
-    image: MatteMadeInHeaven,
-    name: "Absolute New York - Matte Made In Heaven",
-    category: "Beauty",
-    size: ["XS", "S", "M", "L", "XL"],
-    colors: ["black", "gray", "green"],
-    price: "11",
-    offer: "",
-    rating: "4.9",
-    reviews: "120",
-  },
-  {
-    id: 7,
-    image: iphone15,
-    name: "iphone 15- 128/256/512GB (USA-LL/A) Smartphone - Unofficial",
-    category: "Mobiles & Tablets",
-    size: [],
-    colors: ["Yellow", "Pink", "Black", "Blue", "green"],
-    price: "1200",
-    offer: "300",
-    rating: "4.9",
-    reviews: "120",
-  },
-];
 
 const TrendingNow = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Items");
   const [showAllProducts, setShowAllProducts] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [displayedProductsCount, setDisplayedProductsCount] = useState(4);
 
-  const { handleSubmit } = useForm();
-
-  const onSubmit = (data) => {
-    // Handle form submission logic here
-    console.log(data);
-  };
+  useEffect(() => {
+    fetch("/products.json")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
 
   const handleFavoriteClick = (productId) => {
     setFavorites((prevFavorites) =>
@@ -121,15 +24,17 @@ const TrendingNow = () => {
   };
 
   const filteredProducts =
-    selectedCategory === "All Items" ? products : products.filter((product) => product.category === selectedCategory);
-
-  const displayedProducts = showAllProducts ? products : filteredProducts.slice(0, 4);
+    selectedCategory === "All Items"
+      ? products.filter((product, index) => index < displayedProductsCount)
+      : products.filter((product) => product.category === selectedCategory).slice(0, displayedProductsCount);
 
   const handleShowMoreClick = () => {
+    setDisplayedProductsCount(products.length); // Display all products
     setShowAllProducts(true);
   };
 
   const handleShowLessClick = () => {
+    setDisplayedProductsCount(4); // Display only 4 products
     setShowAllProducts(false);
   };
 
@@ -229,7 +134,7 @@ const TrendingNow = () => {
           <span className="block flex-shrink-0">
             <button
               className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium pl-4 py-2.5 sm:pl-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl w-full !pr-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
-              onClick={handleSubmit(onSubmit)}
+              // onClick={handleSubmit(onSubmit)}
             >
               <FaFilter className="w-6 h-6" />
               <span className="block truncate ml-2.5">Filter</span>
@@ -244,12 +149,12 @@ const TrendingNow = () => {
       {/* Products Section */}
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10">
-        {displayedProducts.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} handleFavoriteClick={handleFavoriteClick} favorites={favorites} />
         ))}
       </div>
 
-      {/* Show more button Section */}
+      {/* Show more/less button Section */}
       <div className="flex mt-16 justify-center items-center">
         <button
           className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
