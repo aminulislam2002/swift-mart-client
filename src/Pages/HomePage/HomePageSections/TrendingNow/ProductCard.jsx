@@ -6,26 +6,37 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
   // Add this function outside the component to calculate discounted price
   const calculateDiscountedPrice = (originalPrice, offerPrice) => {
-    // Parse the original price as a number
-    const price = parseFloat(originalPrice);
-    // Parse the offer price as a number
-    const offer = parseFloat(offerPrice);
-    // Calculate the discounted price
-    const discountedPrice = price - offer;
-    // Format the discounted price as a string with two decimal places
-    return `$${discountedPrice.toFixed(2)}`;
+    // Check if there is an offer price
+    if (offerPrice) {
+      // Parse the original price as a number
+      const price = parseFloat(originalPrice);
+      // Parse the offer price as a number
+      const offer = parseFloat(offerPrice);
+      // Calculate the discounted price
+      const discountedPrice = price - offer;
+      // Format the discounted price as a string with two decimal places
+      return `$${discountedPrice.toFixed(2)}`;
+    } else {
+      // If there is no offer, return the original price as is
+      return `$${parseFloat(originalPrice).toFixed(2)}`;
+    }
   };
-
   // Add this function outside the component to calculate discounted percentage
   const calculateDiscountedPercentage = (originalPrice, offerPrice) => {
-    // Parse the original price as a number
-    const price = parseFloat(originalPrice);
-    // Parse the offer price as a number
-    const offer = parseFloat(offerPrice);
-    // Calculate the discounted percentage
-    const discountedPercentage = ((price - offer) / price) * 100;
-    // Format the discounted percentage as a string with two decimal places
-    return `${discountedPercentage.toFixed(2)}%`;
+    // Check if there is an offer price
+    if (offerPrice) {
+      // Parse the original price as a number
+      const price = parseFloat(originalPrice);
+      // Parse the offer price as a number
+      const offer = parseFloat(offerPrice);
+      // Calculate the discounted percentage
+      const discountedPercentage = 100 - ((price - offer) / price) * 100;
+      // Format the discounted percentage as a string with two decimal places
+      return `${discountedPercentage.toFixed(2)}%`;
+    } else {
+      // If there is no offer, return an empty string for the discounted percentage
+      return "";
+    }
   };
 
   return (
@@ -34,7 +45,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
         {/* Render filtered product details here */}
         <div className="" style={{ width: "276px", marginRight: "16px" }}>
           <div className="flex flex-col bg-transparent">
-            <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-[55] group">
+            <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 overflow-hidden z-[55] group">
               <Link className="block" to="/product-detail">
                 <div className="flex justify-center items-center aspect-w-11 aspect-h-12 w-full w-w-full h-full">
                   <img
@@ -79,30 +90,35 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
                   )}
                 </div>
               </div>
-              <div>
+
+              <div className="grid grid-cols-12">
                 {/* Display original price with discounted price */}
-                <div className="flex items-center text-2xl font-medium font-primary">
+                <div className="col-span-12 flex items-center text-2xl font-medium font-primary mb-1">
                   <span className="text-orange-500 font-semibold !leading-none">
                     {calculateDiscountedPrice(product?.price, product?.offer)}
                   </span>
                 </div>
 
-                <div className="flex justify-between">
-                  {/* Display discounted percentage */}
-                  <div className="flex items-center text-sm font-medium mt-2">
-                    <span className="text-gray-400 line-through !leading-none">${product?.price}</span>
-                    <span className="text-green-500 mx-1">
-                      -{calculateDiscountedPercentage(product?.price, product?.offer)}
-                    </span>
-                  </div>
+                <div className={`col-span-${product.offer ? "6" : "12"} flex items-center mb-0.5`}>
+                  {product?.offer && (
+                    <div>
+                      {/* Display discounted percentage if available */}
+                      <div className={`flex items-center text-sm font-medium ${product.offer ? "block" : "hidden"}`}>
+                        <span className="text-gray-400 line-through !leading-none">${product?.price}</span>
+                        <span className="text-green-500 mx-1">
+                          -{calculateDiscountedPercentage(product?.price, product?.offer)}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
 
-                  {/* Display rating and number of reviews of the price */}
-                  <div className="flex items-center mb-0.5">
-                    <FaStar className="w-4 h-4 pb-[1px] text-amber-400"></FaStar>
-                    <span className="text-sm ml-1 text-slate-500 dark:text-slate-400">
-                      {product?.rating} ({product.reviews} reviews)
-                    </span>
-                  </div>
+                {/* Display rating and number of reviews of the price */}
+                <div className="col-span-6 flex justify-center items-center">
+                  <FaStar className="w-4 h-4 text-amber-400"></FaStar>
+                  <span className="text-sm ml-1 text-slate-500 dark:text-slate-400">
+                    {product?.rating} ({product.reviews} reviews)
+                  </span>
                 </div>
               </div>
             </div>

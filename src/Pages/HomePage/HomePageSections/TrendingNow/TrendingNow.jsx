@@ -3,53 +3,52 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaFilter } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
+import ProductCard from "./ProductCard";
 
 // Import images
-import LeatherGloves from "../../../../assets/NewArrivals/Leather-Gloves.png";
-import WinterJacket from "../../../../assets/NewArrivals/Winter-Jacket.png";
-import KnitSweater from "../../../../assets/NewArrivals/Knit-Sweater.png";
 import DenimJeans from "../../../../assets/NewArrivals/Denim-Jeans.png";
-import Sneakers from "../../../../assets/NewArrivals/Sneakers.png";
-import Backpack from "../../../../assets/NewArrivals/Backpack.png";
-import ProductCard from "./ProductCard";
+
+import shoes from "../../../../assets/TrendingNow/shoes.jpeg";
+import sunglass from "../../../../assets/TrendingNow/sunglass.jpg";
+import BabyCarrierBag from "../../../../assets/TrendingNow/Baby Carrier Bag.jpg";
+import WoodenTaptenniscricketbat from "../../../../assets/TrendingNow/Wooden Tap tennis cricket bat.jpeg";
+import iphone15 from "../../../../assets/TrendingNow/iphone15.webp";
+import MatteMadeInHeaven from "../../../../assets/TrendingNow/MatteMadeInHeaven.webp";
 
 const products = [
   {
     id: 1,
-    image: LeatherGloves,
-    name: "Premium Leather Gloves 2 pcs available are many colors if need do sle",
-    category: "Women",
-    size: ["XS", "S", "M", "L", "XL"],
+    image: shoes,
+    name: "New Trendy Black Color Korean Canvas Sneakers Shoes for Men Slip On Casual Shoes",
+    category: "Mans",
+    size: ["40", "41", "42", "43"],
     colors: ["green", "yellow", "red"],
-    title: "Perfect mint green",
-    price: "42",
-    offer: "30",
+    price: "1199",
+    offer: "499",
     rating: "4.9",
     reviews: "250",
   },
   {
     id: 2,
-    image: WinterJacket,
-    name: "Winter Jacket",
-    category: "Mans",
-    size: ["XS", "S", "M", "L", "XL"],
+    image: sunglass,
+    name: "Luxury Brand Design Vintage Rimless Rhinestone Sunglasses Women Men Fashion Gradient Lens Sun Glasses Shades for Female",
+    category: "Women",
+    size: [],
     colors: ["blue", "green", "gray"],
-    title: "Cozy blue",
-    price: "120",
-    offer: "30",
+    price: "752",
+    offer: "411",
     rating: "4.7",
     reviews: "112",
   },
   {
     id: 3,
-    image: KnitSweater,
-    name: "Knit Sweater",
+    image: BabyCarrierBag,
+    name: "High Quality Baby Carrier Bag (Lying, Facing Mummy, Facing Forward) for 6 Months to 2 Years Baby",
     category: "Kids",
-    size: ["XS", "S", "M", "L", "XL"],
+    size: ["M", "L", "XL"],
     colors: ["teal", "blue", "lime"],
-    title: "Warm green",
-    price: "80",
-    offer: "30",
+    price: "485",
+    offer: "249",
     rating: "4.5",
     reviews: "85",
   },
@@ -60,7 +59,6 @@ const products = [
     category: "Jewelry",
     size: ["XS", "S", "M", "L", "XL"],
     colors: ["indigo", "emerald", "khaki"],
-    title: "Classic blue",
     price: "65",
     offer: "30",
     rating: "4.8",
@@ -68,27 +66,37 @@ const products = [
   },
   {
     id: 5,
-    image: Sneakers,
-    name: "Sneakers",
+    image: WoodenTaptenniscricketbat,
+    name: "Wooden Tap tennis cricket bat - Cricket bat - Tennis ball cricket bat",
     category: "Sports",
-    size: ["XS", "S", "M", "L", "XL"],
+    size: [],
     colors: ["violet", "blue", "green"],
-    title: "Sporty red",
-    price: "55",
-    offer: "30",
+    price: "650",
+    offer: "150",
     rating: "4.6",
     reviews: "102",
   },
   {
     id: 6,
-    image: Backpack,
-    name: "Backpack",
+    image: MatteMadeInHeaven,
+    name: "Absolute New York - Matte Made In Heaven",
     category: "Beauty",
     size: ["XS", "S", "M", "L", "XL"],
     colors: ["black", "gray", "green"],
-    title: "Stylish black",
-    price: "90",
-    offer: "30",
+    price: "11",
+    offer: "",
+    rating: "4.9",
+    reviews: "120",
+  },
+  {
+    id: 7,
+    image: iphone15,
+    name: "iphone 15- 128/256/512GB (USA-LL/A) Smartphone - Unofficial",
+    category: "Mobiles & Tablets",
+    size: [],
+    colors: ["Yellow", "Pink", "Black", "Blue", "green"],
+    price: "1200",
+    offer: "300",
     rating: "4.9",
     reviews: "120",
   },
@@ -200,6 +208,14 @@ const TrendingNow = () => {
                   onClick={() => setSelectedCategory("Jewelry")}
                 >
                   Jewelry
+                </button>
+              </li>
+              <li>
+                <button
+                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  onClick={() => setSelectedCategory("Mobiles & Tablets")}
+                >
+                  Mobiles & Tablets
                 </button>
               </li>
 
