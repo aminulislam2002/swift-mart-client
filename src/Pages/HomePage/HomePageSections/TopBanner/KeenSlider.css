@@ -1,10 +1,34 @@
+/* Default styles for all devices */
 [class^="number-slide"],
 [class*=" number-slide"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   max-height: 100vh;
+}
+
+/* Responsive styles for small devices (up to 600px) */
+@media (max-width: 600px) {
+  [class^="number-slide"],
+  [class*=" number-slide"] {
+    height: 30vh;
+  }
+}
+
+/* Responsive styles for medium devices (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  [class^="number-slide"],
+  [class*=" number-slide"] {
+    height: 30vh;
+  }
+}
+
+/* Responsive styles for large devices (1025px and above) */
+@media (min-width: 1025px) {
+  [class^="number-slide"],
+  [class*=" number-slide"] {
+    height: 100vh;
+  }
 }
 
 .number-slide1 {
@@ -20,7 +44,16 @@
 .number-slide3 {
   background: rgb(182, 255, 64);
   background: linear-gradient(128deg, rgba(182, 255, 64, 1) 0%, rgba(63, 255, 71, 1) 100%);
-  background: linear-gradient(128deg, rgba(189, 255, 83, 1) 0%, rgba(43, 250, 82, 1) 100%);
+}
+
+.number-slide4 {
+  background: rgb(64, 175, 255);
+  background: linear-gradient(128deg, rgba(64, 175, 255, 1) 0%, rgba(63, 97, 255, 1) 100%);
+}
+
+.number-slide5 {
+  background: rgb(182, 255, 64);
+  background: linear-gradient(128deg, rgba(182, 255, 64, 1) 0%, rgba(63, 255, 71, 1) 100%);
 }
 
 .navigation-wrapper {
