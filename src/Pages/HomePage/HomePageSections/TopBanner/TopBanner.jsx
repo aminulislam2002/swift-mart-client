@@ -10,7 +10,7 @@ import image1 from "../../../../assets/Banner/1.png";
 import image2 from "../../../../assets/Banner/2.png";
 import image3 from "../../../../assets/Banner/3.png";
 import image4 from "../../../../assets/Banner/4.png";
-import image5 from "../../../../assets/Banner/3.png";
+import image5 from "../../../../assets/Banner/5.png";
 
 const TopBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -65,7 +65,7 @@ const TopBanner = () => {
                   </div>
                   <div className="col-span-6">
                     <div className="absolute right-0 top-0 lg:relative flex justify-center items-center">
-                      <img src={image1} className="w-[300px] h-[300px] lg:w-[550px] lg:h-[650px] " alt="Banner Image 1" />
+                      <img src={image1} className="w-[300px] h-[300px] lg:w-full lg:h-[650px] " alt="Banner Image 1" />
                     </div>
                   </div>
                 </div>
@@ -95,7 +95,7 @@ const TopBanner = () => {
                   </div>
                   <div className="col-span-6">
                     <div className="absolute right-0 top-0 lg:relative flex justify-center items-center">
-                      <img src={image2} className="w-[300px] h-[300px] lg:w-[550px] lg:h-[650px] " alt="Banner Image 2" />
+                      <img src={image2} className="w-[300px] h-[300px] lg:w-full lg:h-[650px] " alt="Banner Image 2" />
                     </div>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ const TopBanner = () => {
                   </div>
                   <div className="col-span-6">
                     <div className="absolute right-0 top-0 lg:relative flex justify-center items-center">
-                      <img src={image3} className="w-[300px] h-[300px] lg:w-[550px] lg:h-[650px] " alt="Banner Image 3" />
+                      <img src={image3} className="w-[300px] h-[300px] lg:w-full lg:h-[650px] " alt="Banner Image 3" />
                     </div>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ const TopBanner = () => {
                   </div>
                   <div className="col-span-6">
                     <div className="absolute right-0 top-0 lg:relative flex justify-center items-center">
-                      <img src={image4} className="w-[300px] h-[300px] lg:w-[550px] lg:h-[650px] " alt="Banner Image 4" />
+                      <img src={image4} className="w-[300px] h-[300px] lg:w-full lg:h-[650px] " alt="Banner Image 4" />
                     </div>
                   </div>
                 </div>
@@ -185,7 +185,7 @@ const TopBanner = () => {
                   </div>
                   <div className="col-span-6">
                     <div className="absolute right-0 top-0 lg:relative flex justify-center items-center">
-                      <img src={image5} className="w-[300px] h-[300px] lg:w-[550px] lg:h-[650px] " alt="Banner Image 5" />
+                      <img src={image5} className="w-[300px] h-[300px] lg:w-full lg:h-[650px] " alt="Banner Image 5" />
                     </div>
                   </div>
                 </div>
