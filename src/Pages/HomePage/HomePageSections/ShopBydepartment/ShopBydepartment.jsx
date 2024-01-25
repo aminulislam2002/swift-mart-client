@@ -9,8 +9,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./ShopBydepartment.css";
-
 import travel_kits from "../../../../assets/ShopBydepartment/travel-kits.png"
 import beauty_products from "../../../../assets/ShopBydepartment/beauty-products.png"
 import sport_kits from "../../../../assets/ShopBydepartment/sport-kits.png"

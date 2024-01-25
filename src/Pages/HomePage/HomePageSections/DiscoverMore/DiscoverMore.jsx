@@ -9,8 +9,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./DiscoverMore.css";
-
 import image1 from "../../../../assets/DiscoverMore/HUDY.png";
 import image2 from "../../../../assets/DiscoverMore/GIFT-BOX.png";
 import image3 from "../../../../assets/DiscoverMore/PERFUM.png";
