@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "./Swiper.css";
+import "./NewArrivals.css";
 import { FaStar } from "react-icons/fa6";
 
 // Import images

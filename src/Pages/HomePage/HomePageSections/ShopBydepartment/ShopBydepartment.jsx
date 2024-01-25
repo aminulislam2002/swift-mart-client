@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./Swiper.css";
+import "./ShopBydepartment.css";
 
 import travel_kits from "../../../../assets/ShopBydepartment/travel-kits.png"
 import beauty_products from "../../../../assets/ShopBydepartment/beauty-products.png"
@@ -158,7 +158,7 @@ const ShopBydepartment = () => {
           {data.map((item) => (
             <SwiperSlide key={item.id}>
               <Link to={item.linkTo}>
-                <div style={{ width: "276px", marginRight: "16px" }}>
+                <div>
                   <div
                     className={`flex-1 relative w-full rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1 ${item.bgColor}`}
                   >

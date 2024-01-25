@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./Swiper.css";
+import "./DiscoverMore.css";
 
 import image1 from "../../../../assets/DiscoverMore/HUDY.png";
 import image2 from "../../../../assets/DiscoverMore/GIFT-BOX.png";
