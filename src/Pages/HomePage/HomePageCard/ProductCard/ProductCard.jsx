@@ -48,11 +48,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
             <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 overflow-hidden z-[55] group">
               <Link className="block" to="/product-detail">
                 <div className="flex justify-center items-center aspect-w-11 aspect-h-12 w-full w-w-full h-full">
-                  <img
-                    alt="product"
-                    src={product?.image}
-                    className="w-full h-[200px]"
-                  />
+                  <img alt="product" src={product?.image} className="w-full h-[200px]" />
                 </div>
               </Link>
               <div className="absolute bottom-0 inset-x-1 space-x-1.5 flex justify-center opacity-0 invisible group-hover:bottom-4 group-hover:opacity-100 group-hover:visible transition-all">

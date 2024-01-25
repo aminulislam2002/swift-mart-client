@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { FaFilter } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
-import ProductCard from "./ProductCard";
+import ProductCard from "../../HomePageCard/ProductCard/ProductCard";
 
 const TrendingNow = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Items");
