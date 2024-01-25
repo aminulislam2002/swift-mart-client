@@ -6,8 +6,8 @@
     "category": "Mans",
     "size": ["40", "41", "42", "43"],
     "colors": ["green", "yellow", "red"],
-    "price": "1199",
-    "offer": "499",
+    "price": "70",
+    "offer": "9",
     "rating": "4.9",
     "reviews": "250"
   },
@@ -18,8 +18,8 @@
     "category": "Women",
     "size": [],
     "colors": ["blue", "green", "gray"],
-    "price": "752",
-    "offer": "411",
+    "price": "10",
+    "offer": "2",
     "rating": "4.7",
     "reviews": "112"
   },
@@ -30,8 +30,8 @@
     "category": "Kids",
     "size": ["M", "L", "XL"],
     "colors": ["teal", "blue", "lime"],
-    "price": "485",
-    "offer": "249",
+    "price": "60",
+    "offer": "5",
     "rating": "4.5",
     "reviews": "85"
   },
@@ -42,7 +42,7 @@
     "category": "Jewelry",
     "size": [],
     "colors": [],
-    "price": "100",
+    "price": "1100",
     "offer": "90",
     "rating": "4.8",
     "reviews": "94"

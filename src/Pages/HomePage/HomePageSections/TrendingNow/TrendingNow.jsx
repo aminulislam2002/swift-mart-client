@@ -58,10 +58,16 @@ const TrendingNow = () => {
       <div>
         <div className="flex flex-col lg:flex-row lg:items-center justify-between space-y-6 lg:space-y-0 lg:space-x-2 ">
           <nav className="relative flex w-full overflow-x-auto text-sm md:text-base hiddenScrollbar" data-nc-id="Nav">
-            <ul className="flex sm:space-x-2">
+            <ul className="flex sm:space-x-2 gap-1 lg:gap-0">
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "All Items"
+                    ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
                   onClick={() => setSelectedCategory("All Items")}
                 >
                   All items
@@ -69,7 +75,13 @@ const TrendingNow = () => {
               </li>
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                 ${
+                   selectedCategory === "Women"
+                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                 }
+                  focus:outline-none`}
                   onClick={() => setSelectedCategory("Women")}
                 >
                   Women
@@ -77,7 +89,13 @@ const TrendingNow = () => {
               </li>
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "Mans"
+                    ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
                   onClick={() => setSelectedCategory("Mans")}
                 >
                   Mans
@@ -85,7 +103,13 @@ const TrendingNow = () => {
               </li>
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "Kids"
+                    ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
                   onClick={() => setSelectedCategory("Kids")}
                 >
                   Kids
@@ -93,7 +117,13 @@ const TrendingNow = () => {
               </li>
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "Sports"
+                    ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
                   onClick={() => setSelectedCategory("Sports")}
                 >
                   Sports
@@ -101,7 +131,13 @@ const TrendingNow = () => {
               </li>
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "Beauty"
+                    ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
                   onClick={() => setSelectedCategory("Beauty")}
                 >
                   Beauty
@@ -109,7 +145,13 @@ const TrendingNow = () => {
               </li>
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "Jewelry"
+                    ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
                   onClick={() => setSelectedCategory("Jewelry")}
                 >
                   Jewelry
@@ -117,23 +159,23 @@ const TrendingNow = () => {
               </li>
               <li>
                 <button
-                  className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full text-slate-500 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-800 hover:bg-slate-100/75 dark:hover:bg-slate-800 focus:outline-none"
+                  className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
+                ${
+                  selectedCategory === "Mobiles & Tablets"
+                    ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                }
+                 focus:outline-none`}
                   onClick={() => setSelectedCategory("Mobiles & Tablets")}
                 >
                   Mobiles & Tablets
                 </button>
               </li>
-
-              {/* <li>
-                  <button className="block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full bg-slate-900 dark:bg-slate-100 text-slate-100 dark:text-slate-900  focus:outline-none">
-                    All items
-                  </button>
-                </li> */}
             </ul>
           </nav>
           <span className="block flex-shrink-0">
             <button
-              className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium pl-4 py-2.5 sm:pl-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl w-full !pr-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+              className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium pl-4 py-2.5 sm:pl-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-800 dark:text-slate-100 hover:bg-slate-800 text-slate-50 shadow-xl w-full !pr-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
               // onClick={handleSubmit(onSubmit)}
             >
               <FaFilter className="w-6 h-6" />
@@ -156,46 +198,48 @@ const TrendingNow = () => {
 
       {/* Show more/less button Section */}
       <div className="flex mt-16 justify-center items-center">
-        <button
-          className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
-          onClick={showAllProducts ? handleShowLessClick : handleShowMoreClick}
-        >
-          {showAllProducts ? (
-            <>
-              <svg
-                className="animate-spin -ml-1 mr-3 h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
-              Show less
-            </>
-          ) : (
-            <>
-              <svg
-                className="animate-spin -ml-1 mr-3 h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
-              Show me more
-            </>
-          )}
-        </button>
+      <button
+  className={`relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 text-slate-50 dark:text-slate-800 shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0
+  ${filteredProducts.length >= 4 ? "block" : "hidden"}`}
+  onClick={showAllProducts ? handleShowLessClick : handleShowMoreClick}
+>
+  {showAllProducts ? (
+    <>
+      <svg
+        className="animate-spin -ml-1 mr-3 h-5 w-5"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+      Show less
+    </>
+  ) : (
+    <>
+      <svg
+        className="animate-spin -ml-1 mr-3 h-5 w-5"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+      Show me more
+    </>
+  )}
+</button>
+
       </div>
     </div>
   );
