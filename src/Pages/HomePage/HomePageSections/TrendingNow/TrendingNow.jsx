@@ -29,8 +29,10 @@ const TrendingNow = () => {
       : products.filter((product) => product.category === selectedCategory).slice(0, displayedProductsCount);
 
   const handleShowMoreClick = () => {
-    setDisplayedProductsCount(products.length); // Display all products
-    setShowAllProducts(true);
+    const currentDisplayedCount = displayedProductsCount;
+    const newDisplayedCount = currentDisplayedCount + 4;
+    setDisplayedProductsCount(newDisplayedCount);
+    setShowAllProducts(newDisplayedCount >= products.length);
   };
 
   const handleShowLessClick = () => {
