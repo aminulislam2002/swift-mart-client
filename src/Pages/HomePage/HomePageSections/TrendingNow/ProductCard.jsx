@@ -43,7 +43,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
     <div>
       <div key={product?.id} className="flex flex-col justify-center items-center hover:shadow-md">
         {/* Render filtered product details here */}
-        <div className="" style={{ width: "276px", marginRight: "16px" }}>
+        <div className="w-[275px]">
           <div className="flex flex-col bg-transparent">
             <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 overflow-hidden z-[55] group">
               <Link className="block" to="/product-detail">
@@ -51,7 +51,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
                   <img
                     alt="product"
                     src={product?.image}
-                    className="w-[245px] h-[190px] md:w-[225px] md:h-[170px] lg:w-[275px] lg:h-[220px] "
+                    className="w-full h-[200px]"
                   />
                 </div>
               </Link>
