@@ -108,19 +108,16 @@ const ShopByDepartment = () => {
             <SwiperSlide key={item.id}>
               <Link to={item.linkTo}>
                 <div>
-                  <div
-                    className={`flex-1 relative w-full rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1 ${item?.bgColor}`}
-                  >
+                  <div className={`flex-1 relative w-full rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1`}>
                     <div>
                       <div className="w-full h-full flex justify-center">
                         <img
                           src={item?.image}
-                          className="w-[245px] h-[190px] md:w-[225px] md:h-[170px] lg:w-[275px] lg:h-[220px] "
+                          className="w-[245px] h-[190px] md:w-[225px] md:h-[170px] lg:w-[275px] lg:h-[220px] rounded-2xl"
                           alt={item?.department}
                         />
                       </div>
                     </div>
-                    <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity rounded-2xl"></span>
                   </div>
                   <div className="mt-5 flex-1 text-center">
                     <h2 className="text-base sm:text-lg text-neutral-900 dark:text-neutral-100 font-semibold">

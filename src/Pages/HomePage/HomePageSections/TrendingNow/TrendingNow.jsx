@@ -163,14 +163,14 @@ const TrendingNow = () => {
                 <button
                   className={`block !leading-none font-medium whitespace-nowrap px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full
                 ${
-                  selectedCategory === "Mobiles & Tablets"
+                  selectedCategory === "Electronics"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
-                  onClick={() => setSelectedCategory("Mobiles & Tablets")}
+                  onClick={() => setSelectedCategory("Electronics")}
                 >
-                  Mobiles & Tablets
+                  Electronics
                 </button>
               </li>
             </ul>
