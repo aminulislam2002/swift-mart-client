@@ -11,7 +11,10 @@ const Footer = () => {
         <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
           <div className="col-span-2 md:col-span-1">
             {/* Logo */}
-            <Link to="/" className="flex justify-start items-center gap-2 text-xl lg:text-2xl font-bold text-primary font-primary">
+            <Link
+              to="/"
+              className="flex justify-start items-center gap-2 text-xl lg:text-2xl font-bold text-slate-800 dark:text-white font-primary"
+            >
               <img src={logo} className="rounded-full w-10 h-10" alt="SwiftMart Logo" />
               <span>SwiftMart</span>
             </Link>
