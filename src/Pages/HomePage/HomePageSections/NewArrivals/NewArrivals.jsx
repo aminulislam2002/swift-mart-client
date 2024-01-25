@@ -46,6 +46,8 @@ const NewArrivals = () => {
     );
   };
 
+  const filteredProducts = products.filter((product) => product.categoryStatus === "new");
+
   return (
     <div className="my-24 lg:my-32 mx-5 lg:mx-10">
       {/* Title of this section */}
@@ -110,7 +112,7 @@ const NewArrivals = () => {
           onSwiper={setSwiper}
           className="mySwiper"
         >
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <SwiperSlide key={product?.id}>
               <ProductCard product={product} handleFavoriteClick={handleFavoriteClick} favorites={favorites}></ProductCard>
             </SwiperSlide>
