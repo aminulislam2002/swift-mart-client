@@ -1,6 +1,6 @@
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,67 +9,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import travel_kits from "../../../../assets/ShopBydepartment/travel-kits.png"
-import beauty_products from "../../../../assets/ShopBydepartment/beauty-products.png"
-import sport_kits from "../../../../assets/ShopBydepartment/sport-kits.png"
-import pets_food from "../../../../assets/ShopBydepartment/pets-food.png"
-import electronics from "../../../../assets/ShopBydepartment/electronics.png"
-import home_decor from "../../../../assets/ShopBydepartment/home-decor.png"
-
-const data = [
-  {
-    id: 1,
-    linkTo: "/link1",
-    image: travel_kits,
-    department: "Travel Kits",
-    products: "500",
-    bgColor: "bg-green-100",
-  },
-  {
-    id: 2,
-    linkTo: "/link2",
-    image: beauty_products,
-    department: "Beauty Products",
-    products: "500",
-    bgColor: "bg-red-100",
-  },
-  {
-    id: 3,
-    linkTo: "/link3",
-    image: sport_kits,
-    department: "Sport Kits",
-    products: "500",
-    bgColor: "bg-yellow-100",
-  },
-  {
-    id: 4,
-    linkTo: "/link4",
-    image: pets_food,
-    department: "Pets Food",
-    products: "500",
-    bgColor: "bg-blue-100",
-  },
-  {
-    id: 5,
-    linkTo: "/link5",
-    image: electronics,
-    department: "Electronics",
-    products: "500",
-    bgColor: "bg-green-100",
-  },
-  {
-    id: 6,
-    linkTo: "/link6",
-    image: home_decor,
-    department: "Home Decor",
-    products: "500",
-    bgColor: "bg-orange-100",
-  },
-];
-
-const ShopBydepartment = () => {
+const ShopByDepartment = () => {
   const [swiper, setSwiper] = useState(null);
   const [isBackButtonActive, setIsBackButtonActive] = useState(false);
+  const [departments, setDepartments] = useState([]);
+
+  useEffect(() => {
+    fetch("/DepartmentData.json")
+      .then((res) => res.json())
+      .then((data) => setDepartments(data));
+  }, []);
 
   const handleBack = () => {
     if (swiper) {
@@ -95,12 +44,14 @@ const ShopBydepartment = () => {
     <div className="my-24 lg:my-32 mx-5 lg:mx-10">
       {/* Title of this section */}
 
-      <div className="relative flex flex-col sm:flex-row sm:items-end justify-between mb-12 lg:mb-14 text-neutral-900 dark:text-neutral-50">
+      <div className="relative flex flex-col sm:flex-row sm:items-end md:items-start justify-between mb-12 lg:mb-14 text-neutral-900 dark:text-neutral-50">
         <div>
           <h2 className="font-primary text-3xl md:text-4xl font-semibold">
             Shop by department<span>! </span>
-            <span className="text-neutral-500 dark:text-neutral-400">Exciting deals await you</span>
           </h2>
+          <span className="mt-2 md:mt-4 font-normal block text-base sm:text-lg text-neutral-500 dark:text-neutral-400">
+            Exciting deals await you
+          </span>
         </div>
         <div className="mt-4 flex justify-end sm:ml-2 sm:mt-0 flex-shrink-0">
           <div className="nc-NextPrev relative flex items-center text-slate-500 dark:text-slate-400">
@@ -153,14 +104,14 @@ const ShopBydepartment = () => {
           onSwiper={setSwiper}
           className="mySwiper"
         >
-          {data.map((item) => (
+          {departments.map((item) => (
             <SwiperSlide key={item.id}>
               <Link to={item.linkTo}>
                 <div>
                   <div
-                    className={`flex-1 relative w-full rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1 ${item.bgColor}`}
+                    className={`flex-1 relative w-full rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1 ${item?.bgColor}`}
                   >
-                    <div className="pt-10">
+                    <div>
                       <div className="w-full h-full flex justify-center">
                         <img
                           src={item?.image}
@@ -189,4 +140,4 @@ const ShopBydepartment = () => {
   );
 };
 
-export default ShopBydepartment;
+export default ShopByDepartment;

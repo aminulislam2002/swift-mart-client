@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "linkTo": "/Fashion_Apparel",
+    "image": "https://i.ibb.co/w6PBKz6/Fashion-Apparel.png",
+    "department": "Fashion & Apparel",
+    "products": "500",
+    "bgColor": "bg-red-100"
+  },
+  {
+    "id": 2,
+    "linkTo": "/Beauty_Cosmetics",
+    "image": "https://i.ibb.co/nbg8Gz7/Beauty-Cosmetics.png",
+    "department": "Beauty & Cosmetics",
+    "products": "500",
+    "bgColor": "bg-blue-100"
+  },
+  {
+    "id": 3,
+    "linkTo": "/Sports_Fitness",
+    "image": "https://i.ibb.co/KrCPwp7/Sports-Fitness.png",
+    "department": "Sports & Fitness",
+    "products": "500",
+    "bgColor": "bg-green-100"
+  },
+  {
+    "id": 4,
+    "linkTo": "/Jewelry_Accessories",
+    "image": "https://i.ibb.co/cwRr5PX/Jewelry-Accessories.png",
+    "department": "Jewelry & Accessories",
+    "products": "500",
+    "bgColor": "bg-orange-100"
+  },
+  {
+    "id": 5,
+    "linkTo": "/Electronics_Gadgets",
+    "image": "https://i.ibb.co/M6JkBhV/Electronics-Gadgets.png",
+    "department": "Electronics & Gadgets",
+    "products": "500",
+    "bgColor": "bg-yellow-100"
+  }
+]
