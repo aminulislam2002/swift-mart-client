@@ -9,7 +9,7 @@ const TrendingNow = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [products, setProducts] = useState([]);
-  const [displayedProductsCount, setDisplayedProductsCount] = useState(4);
+  const [displayedProductsCount, setDisplayedProductsCount] = useState(10);
 
   useEffect(() => {
     fetch("/products.json")
@@ -30,13 +30,13 @@ const TrendingNow = () => {
 
   const handleShowMoreClick = () => {
     const currentDisplayedCount = displayedProductsCount;
-    const newDisplayedCount = currentDisplayedCount + 4;
+    const newDisplayedCount = currentDisplayedCount + 10;
     setDisplayedProductsCount(newDisplayedCount);
     setShowAllProducts(newDisplayedCount >= products.length);
   };
 
   const handleShowLessClick = () => {
-    setDisplayedProductsCount(4); // Display only 4 products
+    setDisplayedProductsCount(10); // Display only 4 products
     setShowAllProducts(false);
   };
 
@@ -192,7 +192,7 @@ const TrendingNow = () => {
 
       {/* Products Section */}
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10">
+      <div className="grid gap-3 md:gap-4 lg:gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} handleFavoriteClick={handleFavoriteClick} favorites={favorites} />
         ))}

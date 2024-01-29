@@ -93,17 +93,20 @@ const NewArrivals = () => {
         <Swiper
           // slidesPerView={4}
           breakpoints={{
-            640: {
-              slidesPerView: 1,
+            400: {
+              slidesPerView: 2,
+              spaceBetween: 12,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 3,
+              spaceBetween: 16,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 5,
+              spaceBetween: 20,
             },
           }}
-          spaceBetween={30}
+          // spaceBetween={20}
           pagination={
             {
               // clickable: true,

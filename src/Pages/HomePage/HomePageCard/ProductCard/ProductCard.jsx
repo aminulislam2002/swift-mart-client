@@ -39,18 +39,35 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
     }
   };
 
+  const getSliceLength = () => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 400) {
+      return 40; // Adjust the length for small screens
+    } else if (windowWidth <= 768) {
+      return 52; // Adjust the length for medium screens
+    } else {
+      return 58; // Default length for large screens
+    }
+  };
+
   return (
     <div>
-      <div key={product?.id} className="flex flex-col justify-center items-center hover:shadow-md">
+      <div key={product?.id} className="flex flex-col justify-center items-center hover:shadow-md bg-red-100">
         {/* Render filtered product details here */}
-        <div className="w-[275px]">
+        <div className="w-[174px] md:w-[232px] lg:w-[237.797px]">
           <div className="flex flex-col bg-transparent">
             <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 overflow-hidden z-[55] group">
               <Link className="block" to="/product-detail">
                 <div className="flex justify-center items-center aspect-w-11 aspect-h-12 w-full w-w-full h-full">
-                  <img alt="product" src={product?.image} className="w-full h-[200px]" />
+                  <img
+                    alt="product"
+                    src={product?.image}
+                    className="w-[174px] h-[130px] md:w-[232px] md:h-[150px] lg:w-[237.797px] lg:h-[180px]"
+                  />
                 </div>
               </Link>
+
               <div className="absolute bottom-0 inset-x-1 space-x-1.5 flex justify-center opacity-0 invisible group-hover:bottom-4 group-hover:opacity-100 group-hover:visible transition-all">
                 {/* Add your size options here */}
                 {product?.size.map((size) => (
@@ -62,44 +79,49 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="space-y-4 px-2.5 pt-5 pb-2.5">
-              <div className="text-start flex justify-between">
-                <div>
-                  <h2 className="text-base font-semibold transition-colors">
-                    {product?.name.length > 45 ? product?.name.slice(0, 45) + "..." : product?.name}
-                  </h2>
-                </div>
-                <div className="p-2 rounded-full focus:outline-none">
+
+              {/* Favorite icon */}
+              <div className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-200 shadow-lg absolute top-2 right-2 z-10">
+                <div className="absolute top-0 right-0 p-2 rounded-full focus:outline-none">
                   {favorites.includes(product?.id) ? (
                     <>
                       <button onClick={() => handleFavoriteClick(product?.id)}>
-                        <MdOutlineFavorite className="w-6 h-6 text-red-600"></MdOutlineFavorite>
+                        <MdOutlineFavorite className="w-5 h-5 text-red-500"></MdOutlineFavorite>
                       </button>
                     </>
                   ) : (
                     <>
                       <button onClick={() => handleFavoriteClick(product?.id)}>
-                        <MdFavoriteBorder className="w-6 h-6 text-gray-600"></MdFavoriteBorder>
+                        <MdFavoriteBorder className="w-5 h-5 text-gray-500"></MdFavoriteBorder>
                       </button>
                     </>
                   )}
                 </div>
               </div>
+            </div>
 
-              <div className="grid grid-cols-12">
+            <div className="space-y-4 p-1.5 md:p-2 lg:p-2.5">
+              <div className="text-start flex justify-between">
+                <div>
+                  <h2 className="text-sm font-semibold transition-colors">
+                    {product?.name.length > 20 ? product?.name.slice(0, getSliceLength()) + "..." : product?.name}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-2">
                 {/* Display original price with discounted price */}
-                <div className="col-span-12 flex items-center text-2xl font-medium font-primary mb-1">
+                <div className="col-span-12 flex items-center text-xl font-medium font-primary mb-1">
                   <span className="text-orange-500 font-semibold !leading-none">
                     {calculateDiscountedPrice(product?.price, product?.offer)}
                   </span>
                 </div>
 
-                <div className={`col-span-${product.offer ? "6" : "12"} flex items-center mb-0.5`}>
+                <div className="col-span-12 h-[20px] flex items-center mb-0.5">
                   {product?.offer && (
                     <div>
                       {/* Display discounted percentage if available */}
-                      <div className={`flex items-center text-sm font-medium ${product.offer ? "block" : "hidden"}`}>
+                      <div className="flex items-center text-sm font-medium">
                         <span className="text-gray-400 line-through !leading-none">${product?.price}</span>
                         <span className="text-green-500 mx-1">
                           -{calculateDiscountedPercentage(product?.price, product?.offer)}
@@ -110,7 +132,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
                 </div>
 
                 {/* Display rating and number of reviews of the price */}
-                <div className="col-span-6 flex justify-center items-center">
+                <div className="col-span-12 flex justify-start items-center">
                   <FaStar className="w-4 h-4 text-amber-400"></FaStar>
                   <span className="text-sm ml-1 text-slate-500 dark:text-slate-400">
                     {product?.rating} ({product.reviews} reviews)
