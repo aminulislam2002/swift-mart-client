@@ -8,28 +8,32 @@ import swift_mart_logo from "../../../assets/Logo/Logo Black Bg.png";
 const NavBar = () => {
   const navItems = [
     {
+      label: "Women",
+      to: "/women",
+    },
+    {
       label: "Men",
       to: "/men",
     },
     {
-      label: "Women",
-      to: "/women",
+      label: "Kids",
+      to: "/kids",
+    },
+    {
+      label: "Sports",
+      to: "/sports",
     },
     {
       label: "Beauty",
       to: "/beauty",
     },
     {
-      label: "Sport",
-      to: "/sport",
+      label: "Jewelry",
+      to: "/jewelry",
     },
     {
-      label: "Offer",
-      to: "/offer",
-    },
-    {
-      label: "New",
-      to: "/new",
+      label: "Electronics",
+      to: "/electronics",
     },
   ];
 
