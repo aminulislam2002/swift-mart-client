@@ -83,14 +83,16 @@ const NavBar = () => {
                 <LuSearch className="w-6 h-5" />
               </button>
               <div className="AvatarDropdown ">
-                <div className="relative">
-                  <button
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200 focus:outline-none flex items-center justify-center"
-                    type="button"
-                  >
-                    <LuUser2 className="w-6 h-6" />
-                  </button>
-                </div>
+                <Link to="Authentication/Register">
+                  <div className="relative">
+                    <button
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200 focus:outline-none flex items-center justify-center"
+                      type="button"
+                    >
+                      <LuUser2 className="w-6 h-6" />
+                    </button>
+                  </div>
+                </Link>
               </div>
               <div className="relative">
                 <button
