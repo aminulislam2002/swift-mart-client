@@ -1,6 +1,6 @@
 // Import necessary React and Tailwind CSS classes
 import { Link } from "react-router-dom";
-import image from "../../../assets/PromoSectionOne/promo.png";
+import image from "../../../assets/PromoSection/promo1.png";
 import logo from "../../../assets/Logo/Logo Black Bg.png";
 
 const PromoSectionOne = () => {

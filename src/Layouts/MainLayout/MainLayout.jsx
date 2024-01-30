@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../../Pages/SharedPages/NavBar/NavBar";
 import Footer from "../../Pages/SharedPages/Footer/Footer";
-import PromoSectionOne from "../../Pages/SharedPages/PromoSection/PromoSectionOne ";
+import PromoSectionOne from "../../Pages/SharedPages/PromoSectionOne/PromoSectionOne ";
 
 const MainLayout = () => {
   return (
