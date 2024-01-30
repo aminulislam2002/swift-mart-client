@@ -1,9 +1,9 @@
 // Import necessary React and Tailwind CSS classes
 import { Link } from "react-router-dom";
-import image from "../../../assets/PromoSection/promo.png";
+import image from "../../../assets/PromoSection/promo1.png";
 import logo from "../../../assets/Logo/Logo Black Bg.png";
 
-const PromoSection = () => {
+const PromoSectionOne = () => {
   return (
     <div className="my-24 lg:my-32 mx-5 lg:mx-10 relative flex flex-col lg:flex-row items-center">
       <div className="relative flex-shrink-0 mb-16 lg:mb-0 lg:mr-10 lg:w-2/5">
@@ -53,4 +53,4 @@ const PromoSection = () => {
   );
 };
 
-export default PromoSection;
+export default PromoSectionOne;

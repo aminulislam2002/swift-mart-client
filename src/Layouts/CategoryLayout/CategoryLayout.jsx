@@ -1,17 +1,17 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../../Pages/SharedPages/NavBar/NavBar";
 import Footer from "../../Pages/SharedPages/Footer/Footer";
-import PromoSectionOne from "../../Pages/SharedPages/PromoSectionOne/PromoSectionOne ";
+import PromoSectionTwo from "../../Pages/SharedPages/PromoSectionTwo/PromoSectionTwo";
 
-const MainLayout = () => {
+const CategoryLayout = () => {
   return (
     <div>
       <NavBar></NavBar>
       <Outlet></Outlet>
-      <PromoSectionOne></PromoSectionOne>
+      <PromoSectionTwo></PromoSectionTwo>
       <Footer></Footer>
     </div>
   );
 };
 
-export default MainLayout;
+export default CategoryLayout;
