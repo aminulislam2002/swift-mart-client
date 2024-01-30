@@ -12,7 +12,7 @@ const NavBar = () => {
       to: "/category/women",
     },
     {
-      label: "Men",
+      label: "Mens",
       to: "/category/mens",
     },
     {
