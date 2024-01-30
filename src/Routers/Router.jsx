@@ -2,6 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout/MainLayout";
 import Home from "../Pages/HomePage/Home/Home";
 import Register from "../Pages/AuthenticationPage/RegisterPage/Register";
+import CategoryLayout from "../Layouts/CategoryLayout/CategoryLayout";
+import Women from "../Pages/CategoryPages/Categories/Women/Women";
+import Mens from "../Pages/CategoryPages/Categories/Mens/Mens";
+import Kids from "../Pages/CategoryPages/Categories/Kids/Kids";
+import Sports from "../Pages/CategoryPages/Categories/Sports/Sports";
+import Beauty from "../Pages/CategoryPages/Categories/Beauty/Beauty";
+import Jewelry from "../Pages/CategoryPages/Categories/Jewelry/Jewelry";
+import Electronics from "../Pages/CategoryPages/Categories/Electronics/Electronics";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +19,40 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+    ],
+  },
+  {
+    path: "/category",
+    element: <CategoryLayout></CategoryLayout>,
+    children: [
+      {
+        path: "women",
+        element: <Women></Women>,
+      },
+      {
+        path: "mens",
+        element: <Mens></Mens>,
+      },
+      {
+        path: "kids",
+        element: <Kids></Kids>,
+      },
+      {
+        path: "sports",
+        element: <Sports></Sports>,
+      },
+      {
+        path: "beauty",
+        element: <Beauty></Beauty>,
+      },
+      {
+        path: "jewelry",
+        element: <Jewelry></Jewelry>,
+      },
+      {
+        path: "electronics",
+        element: <Electronics></Electronics>,
       },
     ],
   },

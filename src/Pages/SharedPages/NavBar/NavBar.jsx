@@ -9,31 +9,31 @@ const NavBar = () => {
   const navItems = [
     {
       label: "Women",
-      to: "/women",
+      to: "/category/women",
     },
     {
       label: "Men",
-      to: "/men",
+      to: "/category/mens",
     },
     {
       label: "Kids",
-      to: "/kids",
+      to: "/category/kids",
     },
     {
       label: "Sports",
-      to: "/sports",
+      to: "/category/sports",
     },
     {
       label: "Beauty",
-      to: "/beauty",
+      to: "/category/beauty",
     },
     {
       label: "Jewelry",
-      to: "/jewelry",
+      to: "/category/jewelry",
     },
     {
       label: "Electronics",
-      to: "/electronics",
+      to: "/category/electronics",
     },
   ];
 
@@ -54,7 +54,7 @@ const NavBar = () => {
                   <li>
                     {navItems.map((item, index) => (
                       <Link key={index} to={item.to}>
-                        {item.label}
+                        {item?.label}
                       </Link>
                     ))}
                   </li>
