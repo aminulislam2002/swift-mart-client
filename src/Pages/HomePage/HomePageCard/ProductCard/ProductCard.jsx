@@ -63,7 +63,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
                   <img
                     alt="product"
                     src={product?.image}
-                    className="w-[174px] h-[130px] md:w-[232px] md:h-[150px] lg:w-[237.797px] lg:h-[180px]"
+                    className="w-[174px] h-[150px] md:w-[232px] md:h-[170px] lg:w-[237.797px] lg:h-[200px] object-cover"
                   />
                 </div>
               </Link>
