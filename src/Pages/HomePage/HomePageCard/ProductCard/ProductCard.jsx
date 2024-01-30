@@ -53,7 +53,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
 
   return (
     <div>
-      <div key={product?.id} className="flex flex-col justify-center items-center hover:shadow-md bg-red-100">
+      <div key={product?.id} className="flex flex-col justify-center items-center hover:shadow-md bg-slate-100 dark:bg-slate-800">
         {/* Render filtered product details here */}
         <div className="w-[174px] md:w-[232px] lg:w-[237.797px]">
           <div className="flex flex-col bg-transparent">
