@@ -89,7 +89,7 @@ const DiscoverMore = () => {
           </h2>
         </div>
         <div className="mt-4 flex justify-end sm:ml-2 sm:mt-0 flex-shrink-0">
-          <div className="nc-NextPrev relative flex items-center text-slate-500 dark:text-slate-400">
+          <div className="nc-NextPrev relative flex items-center text-slate-500 dark:text-slate-50">
             <button
               onClick={handleBack}
               onMouseEnter={activateBackButton}
@@ -148,7 +148,7 @@ const DiscoverMore = () => {
                           <h2 className="text-xl md:text-2xl text-slate-900 font-semibold">{item.title}</h2>
                         </div>
                         <div className="mt-8 ms-1">
-                          <button className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm font-medium py-3 px-4 sm:py-3.5 sm:px-6 bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 nc-shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+                          <button className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm font-medium py-3 px-4 sm:py-3.5 sm:px-6 bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-50 hover:bg-gray-100 dark:hover:bg-slate-800 nc-shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
                             {item.buttonText}
                           </button>
                         </div>

@@ -67,7 +67,7 @@ const TrendingNow = () => {
                 ${
                   selectedCategory === "All Items"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
                   onClick={() => setSelectedCategory("All Items")}
@@ -81,7 +81,7 @@ const TrendingNow = () => {
                  ${
                    selectedCategory === "Women"
                      ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                     : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                  }
                   focus:outline-none`}
                   onClick={() => setSelectedCategory("Women")}
@@ -95,7 +95,7 @@ const TrendingNow = () => {
                 ${
                   selectedCategory === "Mens"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
                   onClick={() => setSelectedCategory("Mens")}
@@ -109,7 +109,7 @@ const TrendingNow = () => {
                 ${
                   selectedCategory === "Kids"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
                   onClick={() => setSelectedCategory("Kids")}
@@ -123,7 +123,7 @@ const TrendingNow = () => {
                 ${
                   selectedCategory === "Sports"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
                   onClick={() => setSelectedCategory("Sports")}
@@ -137,7 +137,7 @@ const TrendingNow = () => {
                 ${
                   selectedCategory === "Beauty"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
                   onClick={() => setSelectedCategory("Beauty")}
@@ -151,7 +151,7 @@ const TrendingNow = () => {
                 ${
                   selectedCategory === "Jewelry"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
                   onClick={() => setSelectedCategory("Jewelry")}
@@ -165,7 +165,7 @@ const TrendingNow = () => {
                 ${
                   selectedCategory === "Electronics"
                     ? "bg-slate-900 text-slate-100 dark:bg-slate-100 dark:text-slate-800"
-                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800"
                 }
                  focus:outline-none`}
                   onClick={() => setSelectedCategory("Electronics")}
@@ -177,7 +177,7 @@ const TrendingNow = () => {
           </nav>
           <span className="block flex-shrink-0">
             <button
-              className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium pl-4 py-2.5 sm:pl-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-800 dark:text-slate-100 hover:bg-slate-800 text-slate-50 shadow-xl w-full !pr-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+              className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium pl-4 py-2.5 sm:pl-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-800 dark:text-slate-50 hover:bg-slate-800 text-slate-50 shadow-xl w-full !pr-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
               // onClick={handleSubmit(onSubmit)}
             >
               <FaFilter className="w-6 h-6" />
@@ -194,14 +194,20 @@ const TrendingNow = () => {
 
       <div className="grid gap-3 md:gap-4 lg:gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10">
         {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} handleFavoriteClick={handleFavoriteClick} favorites={favorites} />
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            product={product}
+            handleFavoriteClick={handleFavoriteClick}
+            favorites={favorites}
+          />
         ))}
       </div>
 
       {/* Show more/less button Section */}
       <div className="flex mt-16 justify-center items-center">
         <button
-          className={`relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 text-slate-50 dark:text-slate-800 shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0
+          className={`relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 text-slate-50 dark:text-slate-50 shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0
   ${filteredProducts.length >= 4 ? "block" : "hidden"}`}
           onClick={showAllProducts ? handleShowLessClick : handleShowMoreClick}
         >

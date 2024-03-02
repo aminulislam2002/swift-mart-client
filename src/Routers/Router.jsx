@@ -10,6 +10,7 @@ import Sports from "../Pages/CategoryPages/Categories/Sports/Sports";
 import Beauty from "../Pages/CategoryPages/Categories/Beauty/Beauty";
 import Jewelry from "../Pages/CategoryPages/Categories/Jewelry/Jewelry";
 import Electronics from "../Pages/CategoryPages/Categories/Electronics/Electronics";
+import ProductDetailsCard from "../Pages/HomePage/HomePageCard/ProductDetailsCard/ProductDetailsCard";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/product-details/:id",
+        element: <ProductDetailsCard></ProductDetailsCard>,
       },
     ],
   },
