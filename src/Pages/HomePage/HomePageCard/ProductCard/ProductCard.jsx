@@ -3,7 +3,7 @@ import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
+const ProductCard = ({ id, product, handleFavoriteClick, favorites }) => {
   // Add this function outside the component to calculate discounted price
   const calculateDiscountedPrice = (originalPrice, offerPrice) => {
     // Check if there is an offer price
@@ -53,12 +53,15 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
 
   return (
     <div>
-      <div key={product?.id} className="flex flex-col justify-center items-center hover:shadow-md bg-slate-100 dark:bg-slate-800">
+      <div
+        key={product?.id}
+        className="flex flex-col justify-center items-center hover:shadow-md bg-slate-100 dark:bg-slate-800"
+      >
         {/* Render filtered product details here */}
         <div className="w-[174px] md:w-[232px] lg:w-[237.797px]">
           <div className="flex flex-col bg-transparent">
             <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 overflow-hidden z-[55] group">
-              <Link className="block" to="/product-detail">
+              <Link to={`/product-details/${id}`}>
                 <div className="flex justify-center items-center aspect-w-11 aspect-h-12 w-full w-w-full h-full">
                   <img
                     alt="product"
@@ -81,7 +84,7 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
               </div>
 
               {/* Favorite icon */}
-              <div className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-200 shadow-lg absolute top-2 right-2 z-10">
+              <div className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-50 shadow-lg absolute top-2 right-2 z-10">
                 <div className="absolute top-0 right-0 p-2 rounded-full focus:outline-none">
                   {favorites.includes(product?.id) ? (
                     <>
@@ -100,46 +103,49 @@ const ProductCard = ({ product, handleFavoriteClick, favorites }) => {
               </div>
             </div>
 
-            <div className="space-y-4 p-1.5 md:p-2 lg:p-2.5">
-              <div className="text-start flex justify-between">
-                <div>
-                  <h2 className="text-sm font-semibold transition-colors">
-                    {product?.name.length > 20 ? product?.name.slice(0, getSliceLength()) + "..." : product?.name}
-                  </h2>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-12 gap-2">
-                {/* Display original price with discounted price */}
-                <div className="col-span-12 flex items-center text-xl font-medium font-primary mb-1">
-                  <span className="text-orange-500 font-semibold !leading-none">
-                    {calculateDiscountedPrice(product?.price, product?.offer)}
-                  </span>
+            <Link to={`/product-details/${id}`}>
+              {" "}
+              <div className="space-y-4 p-1.5 md:p-2 lg:p-2.5">
+                <div className="text-start flex justify-between">
+                  <div>
+                    <h2 className="text-sm font-semibold dark:text-slate-50 transition-colors">
+                      {product?.name.length > 20 ? product?.name.slice(0, getSliceLength()) + "..." : product?.name}
+                    </h2>
+                  </div>
                 </div>
 
-                <div className="col-span-12 h-[20px] flex items-center mb-0.5">
-                  {product?.offer && (
-                    <div>
-                      {/* Display discounted percentage if available */}
-                      <div className="flex items-center text-sm font-medium">
-                        <span className="text-gray-400 line-through !leading-none">${product?.price}</span>
-                        <span className="text-green-500 mx-1">
-                          -{calculateDiscountedPercentage(product?.price, product?.offer)}
-                        </span>
+                <div className="grid grid-cols-12 gap-2">
+                  {/* Display original price with discounted price */}
+                  <div className="col-span-12 flex items-center text-xl font-medium font-primary mb-1">
+                    <span className="text-orange-500 font-semibold !leading-none">
+                      {calculateDiscountedPrice(product?.price, product?.offer)}
+                    </span>
+                  </div>
+
+                  <div className="col-span-12 h-[20px] flex items-center mb-0.5">
+                    {product?.offer && (
+                      <div>
+                        {/* Display discounted percentage if available */}
+                        <div className="flex items-center text-sm font-medium">
+                          <span className="text-gray-400 line-through !leading-none">${product?.price}</span>
+                          <span className="text-green-500 mx-1">
+                            -{calculateDiscountedPercentage(product?.price, product?.offer)}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
 
-                {/* Display rating and number of reviews of the price */}
-                <div className="col-span-12 flex justify-start items-center">
-                  <FaStar className="w-4 h-4 text-amber-400"></FaStar>
-                  <span className="text-sm ml-1 text-slate-500 dark:text-slate-400">
-                    {product?.rating} ({product.reviews} reviews)
-                  </span>
+                  {/* Display rating and number of reviews of the price */}
+                  <div className="col-span-12 flex justify-start items-center">
+                    <FaStar className="w-4 h-4 text-amber-400"></FaStar>
+                    <span className="text-sm ml-1 text-slate-500 dark:text-slate-50">
+                      {product?.rating} ({product.reviews} reviews)
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

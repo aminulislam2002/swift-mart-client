@@ -21,7 +21,7 @@ const HowItWorks = () => {
                 Step 1
               </span>
               <h3 className="text-base font-semibold">Filter &amp; Discover</h3>
-              <span className="block text-slate-600 dark:text-slate-400 text-sm leading-6">
+              <span className="block text-slate-600 dark:text-slate-50 text-sm leading-6">
                 Smart filtering and suggestions make it easy to find
               </span>
             </div>
@@ -40,7 +40,7 @@ const HowItWorks = () => {
                 Step 2
               </span>
               <h3 className="text-base font-semibold">Add to bag</h3>
-              <span className="block text-slate-600 dark:text-slate-400 text-sm leading-6">
+              <span className="block text-slate-600 dark:text-slate-50 text-sm leading-6">
                 Easily select the correct items and add them to the cart
               </span>
             </div>
@@ -59,7 +59,7 @@ const HowItWorks = () => {
                 Step 3
               </span>
               <h3 className="text-base font-semibold">Fast shipping</h3>
-              <span className="block text-slate-600 dark:text-slate-400 text-sm leading-6">
+              <span className="block text-slate-600 dark:text-slate-50 text-sm leading-6">
                 The carrier will confirm and ship quickly to you
               </span>
             </div>
@@ -78,7 +78,7 @@ const HowItWorks = () => {
                 Step 4
               </span>
               <h3 className="text-base font-semibold">Enjoy the product</h3>
-              <span className="block text-slate-600 dark:text-slate-400 text-sm leading-6">
+              <span className="block text-slate-600 dark:text-slate-50 text-sm leading-6">
                 Have fun and enjoy your 5-star quality products
               </span>
             </div>

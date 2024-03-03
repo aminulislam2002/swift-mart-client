@@ -62,7 +62,7 @@ const NewArrivals = () => {
           </span>
         </div>
         <div className="mt-4 flex justify-end sm:ml-2 sm:mt-0 flex-shrink-0">
-          <div className="NextPrev relative flex items-center text-slate-500 dark:text-slate-400">
+          <div className="NextPrev relative flex items-center text-slate-500 dark:text-slate-50">
             <button
               onClick={handleBack}
               onMouseEnter={activateBackButton}
@@ -117,7 +117,12 @@ const NewArrivals = () => {
         >
           {filteredProducts.map((product) => (
             <SwiperSlide key={product?.id}>
-              <ProductCard product={product} handleFavoriteClick={handleFavoriteClick} favorites={favorites}></ProductCard>
+              <ProductCard
+                id={product?.id}
+                product={product}
+                handleFavoriteClick={handleFavoriteClick}
+                favorites={favorites}
+              ></ProductCard>
             </SwiperSlide>
           ))}
         </Swiper>
