@@ -1,9 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { FaTruckArrowRight } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const CheckoutCard = () => {
+const CheckoutCard = (props) => {
+  const location = useLocation();
+  console.log("Checkout Props:", props);
+
+
+  console.log("Checkout Props:", location.state);
+
+
+  // const productInfo = props?.location?.state?.data;
+
+
+  // console.log("Product Info:", productInfo);
+
   return (
     <div className="mb-24 lg:mb-32 mx-5 lg:mx-10">
       <div className="mb-16">
@@ -100,7 +112,7 @@ const CheckoutCard = () => {
                         className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
                         type="radio"
                         value="Address-type-home"
-                        checked=""
+                        // checked=""
                         name="Address-type"
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">

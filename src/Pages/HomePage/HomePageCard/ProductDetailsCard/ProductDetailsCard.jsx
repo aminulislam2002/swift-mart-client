@@ -7,11 +7,35 @@ import { IoBagCheckOutline } from "react-icons/io5";
 import { TbTruckReturn } from "react-icons/tb";
 import { Link, useParams } from "react-router-dom";
 
+// Add this function outside the component to calculate discounted price
+const calculateDiscountedPrice = (originalPrice, offerPrice) => {
+  if (offerPrice) {
+    const price = parseFloat(originalPrice);
+    const offer = parseFloat(offerPrice);
+    const discountedPrice = price - offer;
+    return `$${discountedPrice.toFixed(2)}`;
+  } else {
+    return `$${parseFloat(originalPrice).toFixed(2)}`;
+  }
+};
+// Add this function outside the component to calculate discounted percentage
+const calculateDiscountedPercentage = (originalPrice, offerPrice) => {
+  if (offerPrice) {
+    const price = parseFloat(originalPrice);
+    const offer = parseFloat(offerPrice);
+    const discountedPercentage = 100 - ((price - offer) / price) * 100;
+    return `${discountedPercentage.toFixed(2)}%`;
+  } else {
+    return "";
+  }
+};
+
 const ProductDetailsCard = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("N/A");
   const [selectedSize, setSelectedSize] = useState("N/A");
   const [product, setProduct] = useState(null);
+  const [buyingProductInfo, setBuyingProductInfo] = useState({});
 
   // Get the product id from the URL
   const { id } = useParams();
@@ -24,36 +48,26 @@ const ProductDetailsCard = () => {
         // Find the specific product based on the id parameter
         const selectedProduct = data.find((product) => product.id === parseInt(id));
         setProduct(selectedProduct);
+
+        // Set buyingProductInfo when product data is available
+        const productInfo = {
+          name: selectedProduct?.name,
+          imageUrl: selectedProduct?.image,
+          color: selectedColor,
+          size: selectedSize,
+          quantity: selectedQuantity,
+          price: calculateDiscountedPrice(selectedProduct?.price, selectedProduct?.offer),
+        };
+        setBuyingProductInfo(productInfo);
       })
       .catch((error) => console.error("Error fetching products:", error));
-  }, [id]);
+  }, [id, selectedColor, selectedSize, selectedQuantity]);
 
   if (!product) {
     return <div>Loading...</div>;
   }
 
-  // Add this function outside the component to calculate discounted price
-  const calculateDiscountedPrice = (originalPrice, offerPrice) => {
-    if (offerPrice) {
-      const price = parseFloat(originalPrice);
-      const offer = parseFloat(offerPrice);
-      const discountedPrice = price - offer;
-      return `$${discountedPrice.toFixed(2)}`;
-    } else {
-      return `$${parseFloat(originalPrice).toFixed(2)}`;
-    }
-  };
-  // Add this function outside the component to calculate discounted percentage
-  const calculateDiscountedPercentage = (originalPrice, offerPrice) => {
-    if (offerPrice) {
-      const price = parseFloat(originalPrice);
-      const offer = parseFloat(offerPrice);
-      const discountedPercentage = 100 - ((price - offer) / price) * 100;
-      return `${discountedPercentage.toFixed(2)}%`;
-    } else {
-      return "";
-    }
-  };
+  console.log("Product details page", buyingProductInfo);
 
   const handleSelectQuantity = (value) => {
     setSelectedQuantity((prevQuantity) => prevQuantity + value);
@@ -66,18 +80,27 @@ const ProductDetailsCard = () => {
     setSelectedColor(color);
   };
 
-  const handleBuyNow = () => {
-    const productInfo = {
-      name: product.name,
-      imageUrl: product.image,
-      color: selectedColor,
-      size: selectedSize,
-      quantity: selectedQuantity,
-      price: calculateDiscountedPrice(product?.price, product?.offer),
-    };
+  // const handleBuyNow = () => {
+  //   const productInfo = {
+  //     name: product?.name,
+  //     imageUrl: product?.image,
+  //     color: selectedColor,
+  //     size: selectedSize,
+  //     quantity: selectedQuantity,
+  //     price: calculateDiscountedPrice(product?.price, product?.offer),
+  //   };
+  //   console.log(productInfo);
+  //   setBuyingProductInfo(productInfo);
+  // };
 
-    console.log(productInfo);
-  };
+  // const productInfo = {
+  //   name: product?.name,
+  //   imageUrl: product?.image,
+  //   color: selectedColor,
+  //   size: selectedSize,
+  //   quantity: selectedQuantity,
+  //   price: calculateDiscountedPrice(product?.price, product?.offer),
+  // };
 
   return (
     <div className="mb-24 lg:mb-32 mx-5 lg:mx-10">
@@ -211,8 +234,8 @@ const ProductDetailsCard = () => {
                 </div>
 
                 <Link
-                  to={`/product-checkout/${id}`}
-                  onClick={handleBuyNow}
+                  to={{ pathname: `/product-checkout/${id}`, state: { buyingProductInfo } }}
+                  // onClick={handleBuyNow}
                   className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 text-slate-50 hover:bg-slate-100 hover:text-slate-800 dark:bg-slate-800  dark:text-slate-50 dark:hover:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
                 >
                   <IoBagCheckOutline className="w-6 h-6"></IoBagCheckOutline>
