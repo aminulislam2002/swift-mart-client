@@ -2,13 +2,58 @@
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { FaTruckArrowRight } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const CheckoutCard = () => {
   const location = useLocation();
-  const data = location?.state?.data;
+  const productData = location?.state?.data;
 
-  console.log(data);
-  console.log(data?.productInfo?.name);
+  const [customerData, setCustomerData] = useState({
+    name: "",
+    mobileNumber: "",
+    city: "",
+    address: "",
+    addressType: "Home",
+    deliveryArea: "Dhaka",
+    paymentSystem: "cashOnDelivery",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCustomerData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleAddressTypeChange = (value) => {
+    setCustomerData((prevData) => ({
+      ...prevData,
+      addressType: value,
+    }));
+  };
+
+  const handleDeliveryAreaChange = (value) => {
+    setCustomerData((prevData) => ({
+      ...prevData,
+      deliveryArea: value,
+    }));
+  };
+
+  const handlePaymentSystemChange = (value) => {
+    setCustomerData((prevData) => ({
+      ...prevData,
+      paymentSystem: value,
+    }));
+  };
+
+  const handleSaveAndConfirmOrder = () => {
+    const orderInfo = {
+      productData: productData?.productInfo,
+      customerData: customerData,
+    };
+    console.log(orderInfo);
+  };
 
   return (
     <div className="mb-24 lg:mb-32 mx-5 lg:mx-10">
@@ -40,9 +85,7 @@ const CheckoutCard = () => {
                     <span className="uppercase">SHIPPING ADDRESS</span>
                     <IoCheckmarkDoneSharp className="w-5 h-5 ms-2"></IoCheckmarkDoneSharp>
                   </h3>
-                  <div className="font-semibold mt-1 text-sm">
-                    {/* <span className="">St. Paul's Road, Norris, SD 57560, Dakota, USA</span> */}
-                  </div>
+                  <div className="font-semibold mt-1 text-sm"></div>
                 </div>
                 <button className="py-2 px-4 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 mt-5 sm:mt-0 sm:ml-auto text-sm font-medium rounded-lg">
                   Change
@@ -55,6 +98,9 @@ const CheckoutCard = () => {
                       Name
                     </label>
                     <input
+                      name="name"
+                      value={customerData.name}
+                      onChange={handleChange}
                       className="block w-full border border-slate-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-slate-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-slate-900 disabled:bg-slate-200 dark:disabled:bg-slate-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1.5"
                       type="text"
                       placeholder="Enter your name"
@@ -65,9 +111,12 @@ const CheckoutCard = () => {
                       Mobile Number
                     </label>
                     <input
+                      name="mobileNumber"
+                      value={customerData.mobileNumber}
+                      onChange={handleChange}
                       className="block w-full border border-slate-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-slate-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-slate-900 disabled:bg-slate-200 dark:disabled:bg-slate-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1.5"
-                      type="number"
-                      placeholder="Enter your number"
+                      type="text"
+                      placeholder="Enter your name"
                     />
                   </div>
                 </div>
@@ -78,9 +127,12 @@ const CheckoutCard = () => {
                       City
                     </label>
                     <input
+                      name="city"
+                      value={customerData.city}
+                      onChange={handleChange}
                       className="block w-full border border-slate-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-slate-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-slate-900 disabled:bg-slate-200 dark:disabled:bg-slate-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1.5"
                       type="text"
-                      placeholder="Enter your city name"
+                      placeholder="Enter your name"
                     />
                   </div>
                   <div className="">
@@ -88,9 +140,12 @@ const CheckoutCard = () => {
                       Address
                     </label>
                     <input
+                      name="address"
+                      value={customerData.address}
+                      onChange={handleChange}
                       className="block w-full border border-slate-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-slate-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-slate-900 disabled:bg-slate-200 dark:disabled:bg-slate-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1.5"
-                      placeholder="Enter your address"
                       type="text"
+                      placeholder="Enter your name"
                     />
                   </div>
                 </div>
@@ -105,9 +160,10 @@ const CheckoutCard = () => {
                         id="Address-type-home"
                         className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
                         type="radio"
-                        value="Address-type-home"
-                        // checked=""
-                        name="Address-type"
+                        value="Home"
+                        name="addressType"
+                        checked={customerData.addressType === "Home"}
+                        onChange={() => handleAddressTypeChange("Home")}
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
                         <span className="text-sm font-medium">
@@ -117,11 +173,13 @@ const CheckoutCard = () => {
                     </div>
                     <div className="flex items-center text-sm sm ">
                       <input
-                        id="Address-type-office"
+                        id="Address-type-home"
                         className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
                         type="radio"
-                        value="Address-type-office"
-                        name="Address-type"
+                        value="Office"
+                        name="addressType"
+                        checked={customerData.addressType === "Office"}
+                        onChange={() => handleAddressTypeChange("Office")}
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
                         <span className="text-sm font-medium">
@@ -142,9 +200,10 @@ const CheckoutCard = () => {
                         id="Address-type-home"
                         className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
                         type="radio"
-                        value="Address-type-home"
-                        // checked=""
-                        name="Address-type"
+                        value="Dhaka"
+                        name="deliveryArea"
+                        checked={customerData.deliveryArea === "Dhaka"}
+                        onChange={() => handleDeliveryAreaChange("Dhaka")}
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
                         <span className="text-sm font-medium">
@@ -155,15 +214,17 @@ const CheckoutCard = () => {
 
                     <div className="flex items-center text-sm sm ">
                       <input
-                        id="Address-type-office"
+                        id="Address-type-home"
                         className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
                         type="radio"
-                        value="Address-type-office"
-                        name="Address-type"
+                        value="Outside of Dhaka"
+                        name="deliveryArea"
+                        checked={customerData.deliveryArea === "Outside of Dhaka"}
+                        onChange={() => handleDeliveryAreaChange("Outside of Dhaka")}
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
                         <span className="text-sm font-medium">
-                          Out side of Dhaka <span className="font-light">($100)</span>
+                          Outside of Dhaka <span className="font-light">($100)</span>
                         </span>
                       </label>
                     </div>
@@ -180,9 +241,10 @@ const CheckoutCard = () => {
                         id="Address-type-home"
                         className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
                         type="radio"
-                        value="Address-type-home"
-                        // checked=""
-                        name="Address-type"
+                        value="cashOnDelivery"
+                        name="paymentSystem"
+                        checked={customerData.paymentSystem === "cashOnDelivery"}
+                        onChange={() => handlePaymentSystemChange("cashOnDelivery")}
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
                         <span className="text-sm font-medium">Cash on delivery</span>
@@ -192,7 +254,10 @@ const CheckoutCard = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row pt-6">
-                  <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+                  <button
+                    onClick={handleSaveAndConfirmOrder}
+                    className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+                  >
                     Save and Confirm Order
                   </button>
                   <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm font-medium py-3 px-4 sm:py-3.5 sm:px-6 text-slate-700 dark:bg-slate-900 dark:text-slate-300 bg-gray-100 dark:hover:bg-slate-800 mt-3 sm:mt-0 sm:ml-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
@@ -211,27 +276,31 @@ const CheckoutCard = () => {
 
           <div className="flex py-7 first:pt-0 last:pb-0 px-3 border-b">
             <div className="h-36 w-24 sm:w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 relative">
-              <img src={data?.productInfo?.imageUrl} alt={data?.productInfo?.name} className="w-full h-full object-cover" />
+              <img
+                src={productData?.productInfo?.imageUrl}
+                alt={productData?.productInfo?.name}
+                className="w-full h-full object-cover"
+              />
               <a className="absolute inset-0" href="/product-detail"></a>
             </div>
 
             <div className="ml-3 sm:ml-6 flex flex-1 flex-col">
               <h3 className="text-base font-semibold font-primary mb-3">
-                <p className="text-primary-6000">{data?.productInfo?.name}</p>
+                <p className="text-primary-6000">{productData?.productInfo?.name}</p>
               </h3>
 
               <div className="flex text-sm text-slate-600 dark:text-slate-300 mb-3">
                 <div className="flex items-center space-x-1.5">
-                  <span className="text-gray-700">{data?.productInfo?.color}</span>
+                  <span className="text-gray-700">{productData?.productInfo?.color}</span>
                 </div>
                 <span className="mx-4 border-l border-slate-200 dark:border-slate-700 "></span>
                 <div className="flex items-center space-x-1.5">
-                  <span>{data?.productInfo?.size}</span>
+                  <span>{productData?.productInfo?.size}</span>
                 </div>
               </div>
 
               <div className="col-span-12 flex items-center text-xl font-medium font-primary mb-3">
-                <span className="text-orange-500 font-semibold !leading-none">{data?.productInfo?.price}</span>
+                <span className="text-orange-500 font-semibold !leading-none">{productData?.productInfo?.price}</span>
               </div>
 
               <div className="flex justify-end items-center">
