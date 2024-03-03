@@ -52,12 +52,12 @@ const CheckoutCard = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-3">
                   <div>
                     <label className="font-medium text-slate-900 dark:text-slate-200 text-sm" data-nc-id="Label">
-                      First name
+                      Name
                     </label>
                     <input
                       className="block w-full border border-slate-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-slate-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-slate-900 disabled:bg-slate-200 dark:disabled:bg-slate-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1.5"
                       type="text"
-                      placeholder="Enter your first name"
+                      placeholder="Enter your name"
                     />
                   </div>
                   <div>
@@ -125,15 +125,72 @@ const CheckoutCard = () => {
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
                         <span className="text-sm font-medium">
-                          Office
-                          <span className="font-light">
-                            (Delivery <span className="font-medium">9 AM - 5 PM</span>)
-                          </span>
+                          Office <span className="font-light">(Delivery 9 AM - 5 PM)</span>
                         </span>
                       </label>
                     </div>
                   </div>
                 </div>
+
+                <div>
+                  <label className="font-medium text-slate-900 dark:text-slate-200 text-sm" data-nc-id="Label">
+                    Delivery area
+                  </label>
+                  <div className="mt-1.5 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                    <div className="flex items-center text-sm sm ">
+                      <input
+                        id="Address-type-home"
+                        className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
+                        type="radio"
+                        value="Address-type-home"
+                        // checked=""
+                        name="Address-type"
+                      />
+                      <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
+                        <span className="text-sm font-medium">
+                          Dhaka <span className="font-light">($50)</span>
+                        </span>
+                      </label>
+                    </div>
+
+                    <div className="flex items-center text-sm sm ">
+                      <input
+                        id="Address-type-office"
+                        className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
+                        type="radio"
+                        value="Address-type-office"
+                        name="Address-type"
+                      />
+                      <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
+                        <span className="text-sm font-medium">
+                          Out side of Dhaka <span className="font-light">($100)</span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="font-medium text-slate-900 dark:text-slate-200 text-sm" data-nc-id="Label">
+                    Payment system
+                  </label>
+                  <div className="mt-1.5 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                    <div className="flex items-center text-sm sm ">
+                      <input
+                        id="Address-type-home"
+                        className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
+                        type="radio"
+                        value="Address-type-home"
+                        // checked=""
+                        name="Address-type"
+                      />
+                      <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
+                        <span className="text-sm font-medium">Cash on delivery</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex flex-col sm:flex-row pt-6">
                   <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
                     Save and Confirm Order
