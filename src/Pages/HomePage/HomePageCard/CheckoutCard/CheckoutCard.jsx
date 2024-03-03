@@ -3,18 +3,12 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { FaTruckArrowRight } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 
-const CheckoutCard = (props) => {
+const CheckoutCard = () => {
   const location = useLocation();
-  console.log("Checkout Props:", props);
+  const data = location?.state?.data;
 
-
-  console.log("Checkout Props:", location.state);
-
-
-  // const productInfo = props?.location?.state?.data;
-
-
-  // console.log("Product Info:", productInfo);
+  console.log(data);
+  console.log(data?.productInfo?.name);
 
   return (
     <div className="mb-24 lg:mb-32 mx-5 lg:mx-10">
@@ -158,44 +152,33 @@ const CheckoutCard = (props) => {
             <h3 className="text-lg font-semibold p-6">Order summary</h3>
           </div>
 
-          <div className="flex py-7 first:pt-0 last:pb-0">
+          <div className="flex py-7 first:pt-0 last:pb-0 px-3 border-b">
             <div className="h-36 w-24 sm:w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 relative">
-              <img src="/path/to/product-image.jpg" alt="Product Image" className="w-full h-full object-cover" />
+              <img src={data?.productInfo?.imageUrl} alt={data?.productInfo?.name} className="w-full h-full object-cover" />
               <a className="absolute inset-0" href="/product-detail"></a>
             </div>
 
             <div className="ml-3 sm:ml-6 flex flex-1 flex-col">
-              <div>
-                <div className="flex justify-between">
-                  <div className="flex-[1.5]">
-                    <h3 className="text-base font-semibold">
-                      <a href="/product-detail" className="text-primary-6000 hover:underline">
-                        Rey Nylon Backpack
-                      </a>
-                    </h3>
-                    <div className="mt-1.5 sm:mt-2.5 flex text-sm text-slate-600 dark:text-slate-300">
-                      <div className="flex items-center space-x-1.5">
-                        <span className="text-gray-700">Black</span>
-                      </div>
-                      <span className="mx-4 border-l border-slate-200 dark:border-slate-700 "></span>
-                      <div className="flex items-center space-x-1.5">
-                        <span>2XL</span>
-                      </div>
-                    </div>
-                  </div>
+              <h3 className="text-base font-semibold font-primary mb-3">
+                <p className="text-primary-6000">{data?.productInfo?.name}</p>
+              </h3>
 
-                  <div className="hidden flex-1 sm:flex justify-end items-center">
-                    <div className="border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium text-green-500">
-                      $74
-                    </div>
-                  </div>
+              <div className="flex text-sm text-slate-600 dark:text-slate-300 mb-3">
+                <div className="flex items-center space-x-1.5">
+                  <span className="text-gray-700">{data?.productInfo?.color}</span>
+                </div>
+                <span className="mx-4 border-l border-slate-200 dark:border-slate-700 "></span>
+                <div className="flex items-center space-x-1.5">
+                  <span>{data?.productInfo?.size}</span>
                 </div>
               </div>
 
-              <div className="flex mt-auto pt-4 items-end justify-between text-sm">
-                <button className="flex items-center mt-3 font-medium text-primary-6000 hover:text-primary-500 text-sm ">
-                  Remove
-                </button>
+              <div className="col-span-12 flex items-center text-xl font-medium font-primary mb-3">
+                <span className="text-orange-500 font-semibold !leading-none">{data?.productInfo?.price}</span>
+              </div>
+
+              <div className="flex justify-end items-center">
+                <button className="text-base text-blue-600 font-semibold">Remove</button>
               </div>
             </div>
           </div>

@@ -58,7 +58,7 @@ const ProductDetailsCard = () => {
           quantity: selectedQuantity,
           price: calculateDiscountedPrice(selectedProduct?.price, selectedProduct?.offer),
         };
-        setBuyingProductInfo(productInfo);
+        setBuyingProductInfo({ productInfo });
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, [id, selectedColor, selectedSize, selectedQuantity]);
@@ -66,8 +66,6 @@ const ProductDetailsCard = () => {
   if (!product) {
     return <div>Loading...</div>;
   }
-
-  console.log("Product details page", buyingProductInfo);
 
   const handleSelectQuantity = (value) => {
     setSelectedQuantity((prevQuantity) => prevQuantity + value);
@@ -79,28 +77,6 @@ const ProductDetailsCard = () => {
   const handleSelectedColor = (color) => {
     setSelectedColor(color);
   };
-
-  // const handleBuyNow = () => {
-  //   const productInfo = {
-  //     name: product?.name,
-  //     imageUrl: product?.image,
-  //     color: selectedColor,
-  //     size: selectedSize,
-  //     quantity: selectedQuantity,
-  //     price: calculateDiscountedPrice(product?.price, product?.offer),
-  //   };
-  //   console.log(productInfo);
-  //   setBuyingProductInfo(productInfo);
-  // };
-
-  // const productInfo = {
-  //   name: product?.name,
-  //   imageUrl: product?.image,
-  //   color: selectedColor,
-  //   size: selectedSize,
-  //   quantity: selectedQuantity,
-  //   price: calculateDiscountedPrice(product?.price, product?.offer),
-  // };
 
   return (
     <div className="mb-24 lg:mb-32 mx-5 lg:mx-10">
@@ -234,8 +210,8 @@ const ProductDetailsCard = () => {
                 </div>
 
                 <Link
-                  to={{ pathname: `/product-checkout/${id}`, state: { buyingProductInfo } }}
-                  // onClick={handleBuyNow}
+                  to="/product-checkout"
+                  state={{ data: buyingProductInfo }}
                   className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 text-slate-50 hover:bg-slate-100 hover:text-slate-800 dark:bg-slate-800  dark:text-slate-50 dark:hover:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
                 >
                   <IoBagCheckOutline className="w-6 h-6"></IoBagCheckOutline>
