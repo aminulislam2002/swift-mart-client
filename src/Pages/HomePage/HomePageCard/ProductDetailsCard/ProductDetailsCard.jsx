@@ -5,16 +5,16 @@ import { HiOutlineCurrencyBangladeshi } from "react-icons/hi";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { TbTruckReturn } from "react-icons/tb";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ProductDetailsCard = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("N/A");
   const [selectedSize, setSelectedSize] = useState("N/A");
+  const [product, setProduct] = useState(null);
 
   // Get the product id from the URL
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     // Fetch all products
@@ -64,6 +64,19 @@ const ProductDetailsCard = () => {
   };
   const handleSelectedColor = (color) => {
     setSelectedColor(color);
+  };
+
+  const handleBuyNow = () => {
+    const productInfo = {
+      name: product.name,
+      imageUrl: product.image,
+      color: selectedColor,
+      size: selectedSize,
+      quantity: selectedQuantity,
+      price: calculateDiscountedPrice(product?.price, product?.offer),
+    };
+
+    console.log(productInfo);
   };
 
   return (
@@ -196,10 +209,15 @@ const ProductDetailsCard = () => {
                     </div>
                   </div>
                 </div>
-                <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-800 hover:bg-slate-100 text-slate-50 dark:text-slate-50 dark:hover:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+
+                <Link
+                  to={`/product-checkout/${id}`}
+                  onClick={handleBuyNow}
+                  className="relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 disabled:bg-opacity-90 bg-slate-900 text-slate-50 hover:bg-slate-100 hover:text-slate-800 dark:bg-slate-800  dark:text-slate-50 dark:hover:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+                >
                   <IoBagCheckOutline className="w-6 h-6"></IoBagCheckOutline>
                   <span className="ml-3">Buy Now</span>
-                </button>
+                </Link>
               </div>
             </div>
 
