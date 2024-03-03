@@ -12,6 +12,7 @@ import Jewelry from "../Pages/CategoryPages/Categories/Jewelry/Jewelry";
 import Electronics from "../Pages/CategoryPages/Categories/Electronics/Electronics";
 import ProductDetailsCard from "../Pages/HomePage/HomePageCard/ProductDetailsCard/ProductDetailsCard";
 import CheckoutCard from "../Pages/HomePage/HomePageCard/CheckoutCard/CheckoutCard";
+import OrderProduct from "../Pages/DashboardPages/AdminDashboard/OrderProduct/OrderProduct";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/product-checkout",
         element: <CheckoutCard></CheckoutCard>,
+      },
+      {
+        path: "/order",
+        element: <OrderProduct></OrderProduct>,
       },
     ],
   },

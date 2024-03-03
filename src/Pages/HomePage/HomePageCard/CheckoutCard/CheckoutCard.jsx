@@ -16,7 +16,7 @@ const CheckoutCard = () => {
     address: "",
     addressType: "Home",
     deliveryArea: "Dhaka",
-    paymentSystem: "cashOnDelivery",
+    paymentSystem: "Cash On Delivery",
   });
 
   const handleChange = (e) => {
@@ -276,10 +276,10 @@ const CheckoutCard = () => {
                         id="Address-type-home"
                         className="focus:ring-action-primary text-primary-500 rounded-full border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
                         type="radio"
-                        value="cashOnDelivery"
+                        value="Cash On Delivery"
                         name="paymentSystem"
-                        checked={customerData.paymentSystem === "cashOnDelivery"}
-                        onChange={() => handlePaymentSystemChange("cashOnDelivery")}
+                        checked={customerData.paymentSystem === "Cash On Delivery"}
+                        onChange={() => handlePaymentSystemChange("Cash On Delivery")}
                       />
                       <label className="pl-2.5 sm:pl-3 block text-slate-900 dark:text-slate-100 select-none">
                         <span className="text-sm font-medium">Cash on delivery</span>
