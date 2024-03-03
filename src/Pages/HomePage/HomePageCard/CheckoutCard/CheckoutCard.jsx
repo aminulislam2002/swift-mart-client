@@ -3,6 +3,7 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { FaTruckArrowRight } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const CheckoutCard = () => {
   const location = useLocation();
@@ -52,7 +53,41 @@ const CheckoutCard = () => {
       productData: productData?.productInfo,
       customerData: customerData,
     };
-    console.log(orderInfo);
+
+    // Assuming you have the fetch API available in your environment
+    fetch("https://media-master-hub-server.vercel.app/postOrder", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(orderInfo),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to save order.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data); // Log the server response
+
+        // Success message with SweetAlert
+        Swal.fire({
+          icon: "success",
+          title: "Order Saved!",
+          text: "Your order has been successfully saved.",
+        });
+      })
+      .catch((error) => {
+        console.error("Error saving order:", error);
+
+        // Error message with SweetAlert
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to save order. Please try again.",
+        });
+      });
   };
 
   return (
